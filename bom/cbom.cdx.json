@@ -1,0 +1,482 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "bom-ref": "crypto/ml-kem-768",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "cryptoFunctions": [
+            "keygen",
+            "encapsulate",
+            "decapsulate"
+          ],
+          "executionEnvironment": "software-plain-ram",
+          "nistQuantumSecurityLevel": 3,
+          "parameterSetIdentifier": "768",
+          "primitive": "kem"
+        },
+        "assetType": "algorithm",
+        "oid": "2.16.840.1.101.3.4.4.2"
+      },
+      "name": "ML-KEM-768",
+      "properties": [
+        {
+          "name": "sih:quantum-vulnerable",
+          "value": "false"
+        },
+        {
+          "name": "sih:source",
+          "value": "backend/app/crypto/pqc_kem.py (mlkem)"
+        },
+        {
+          "name": "sih:standard",
+          "value": "FIPS 203"
+        },
+        {
+          "name": "sih:use",
+          "value": "per-recipient CEK key establishment only"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto/ml-dsa-44",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "cryptoFunctions": [
+            "keygen",
+            "sign",
+            "verify"
+          ],
+          "executionEnvironment": "software-plain-ram",
+          "nistQuantumSecurityLevel": 2,
+          "parameterSetIdentifier": "44",
+          "primitive": "signature"
+        },
+        "assetType": "algorithm",
+        "oid": "2.16.840.1.101.3.4.3.17"
+      },
+      "name": "ML-DSA-44",
+      "properties": [
+        {
+          "name": "sih:quantum-vulnerable",
+          "value": "false"
+        },
+        {
+          "name": "sih:source",
+          "value": "backend/app/crypto/pqc_dsa.py (dilithium_py)"
+        },
+        {
+          "name": "sih:standard",
+          "value": "FIPS 204"
+        },
+        {
+          "name": "sih:use",
+          "value": "provenance records, ledger blocks, trust manifests"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto/aes-256-gcm",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "cryptoFunctions": [
+            "keygen",
+            "encrypt",
+            "decrypt",
+            "tag"
+          ],
+          "executionEnvironment": "software-plain-ram",
+          "mode": "gcm",
+          "nistQuantumSecurityLevel": 5,
+          "parameterSetIdentifier": "256",
+          "primitive": "ae"
+        },
+        "assetType": "algorithm",
+        "oid": "2.16.840.1.101.3.4.1.46"
+      },
+      "name": "AES-256-GCM",
+      "properties": [
+        {
+          "name": "sih:quantum-vulnerable",
+          "value": "false"
+        },
+        {
+          "name": "sih:source",
+          "value": "backend/app/crypto/symmetric.py (cryptography)"
+        },
+        {
+          "name": "sih:standard",
+          "value": "NIST SP 800-38D"
+        },
+        {
+          "name": "sih:nonce-bits",
+          "value": "96"
+        },
+        {
+          "name": "sih:aad",
+          "value": "document/recipient context binding"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto/hkdf-sha256",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "cryptoFunctions": [
+            "keyderive"
+          ],
+          "executionEnvironment": "software-plain-ram",
+          "primitive": "kdf"
+        },
+        "assetType": "algorithm",
+        "oid": "1.2.840.113549.1.9.16.3.28"
+      },
+      "name": "HKDF-SHA256",
+      "properties": [
+        {
+          "name": "sih:quantum-vulnerable",
+          "value": "false"
+        },
+        {
+          "name": "sih:source",
+          "value": "backend/app/crypto/kdf.py (cryptography)"
+        },
+        {
+          "name": "sih:standard",
+          "value": "RFC 5869"
+        },
+        {
+          "name": "sih:info-prefix",
+          "value": "sih26237-cek-wrapping-v3"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto/sha-256",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "cryptoFunctions": [
+            "digest"
+          ],
+          "executionEnvironment": "software-plain-ram",
+          "nistQuantumSecurityLevel": 2,
+          "primitive": "hash"
+        },
+        "assetType": "algorithm",
+        "oid": "2.16.840.1.101.3.4.2.1"
+      },
+      "name": "SHA-256",
+      "properties": [
+        {
+          "name": "sih:quantum-vulnerable",
+          "value": "false"
+        },
+        {
+          "name": "sih:source",
+          "value": "hashlib"
+        },
+        {
+          "name": "sih:standard",
+          "value": "FIPS 180-4"
+        },
+        {
+          "name": "sih:use",
+          "value": "document hashes, record hashes, block chaining, fingerprints"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto/scrypt",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "cryptoFunctions": [
+            "keyderive"
+          ],
+          "executionEnvironment": "software-plain-ram",
+          "primitive": "kdf"
+        },
+        "assetType": "algorithm",
+        "oid": "1.3.6.1.4.1.11591.4.11"
+      },
+      "name": "scrypt",
+      "properties": [
+        {
+          "name": "sih:quantum-vulnerable",
+          "value": "false"
+        },
+        {
+          "name": "sih:source",
+          "value": "backend/app/crypto/keystore.py (cryptography)"
+        },
+        {
+          "name": "sih:standard",
+          "value": "RFC 7914"
+        },
+        {
+          "name": "sih:N",
+          "value": "32768"
+        },
+        {
+          "name": "sih:r",
+          "value": "8"
+        },
+        {
+          "name": "sih:p",
+          "value": "1"
+        },
+        {
+          "name": "sih:salt-bits",
+          "value": "128"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "crypto/os-csprng",
+      "cryptoProperties": {
+        "algorithmProperties": {
+          "cryptoFunctions": [
+            "generate"
+          ],
+          "executionEnvironment": "software-plain-ram",
+          "primitive": "drbg"
+        },
+        "assetType": "algorithm"
+      },
+      "name": "Operating-system CSPRNG",
+      "properties": [
+        {
+          "name": "sih:quantum-vulnerable",
+          "value": "false"
+        },
+        {
+          "name": "sih:source",
+          "value": "os.urandom / secrets"
+        },
+        {
+          "name": "sih:use",
+          "value": "CEKs, nonces, salts, markers, tokens"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "key/ml-kem-dk",
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "algorithmRef": "crypto/ml-kem-768",
+          "securedBy": {
+            "algorithmRef": "crypto/aes-256-gcm",
+            "mechanism": "scrypt + AES-256-GCM encrypted local software keystore (not an HSM)"
+          },
+          "size": 19200,
+          "type": "private-key"
+        }
+      },
+      "name": "ML-KEM-768 decapsulation key",
+      "properties": [
+        {
+          "name": "sih:storage",
+          "value": "encrypted keystore file; process memory while logged in"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "key/ml-kem-ek",
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "algorithmRef": "crypto/ml-kem-768",
+          "size": 9472,
+          "type": "public-key"
+        }
+      },
+      "name": "ML-KEM-768 encapsulation key",
+      "properties": [
+        {
+          "name": "sih:storage",
+          "value": "SQLite registry (recipients)"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "key/ml-dsa-sk",
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "algorithmRef": "crypto/ml-dsa-44",
+          "securedBy": {
+            "algorithmRef": "crypto/aes-256-gcm",
+            "mechanism": "scrypt + AES-256-GCM encrypted local software keystore (not an HSM)"
+          },
+          "size": 20480,
+          "type": "private-key"
+        }
+      },
+      "name": "ML-DSA-44 signing key",
+      "properties": [
+        {
+          "name": "sih:storage",
+          "value": "encrypted keystore file; process memory while logged in"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "key/ml-dsa-pk",
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "algorithmRef": "crypto/ml-dsa-44",
+          "size": 10496,
+          "type": "public-key"
+        }
+      },
+      "name": "ML-DSA-44 verification key",
+      "properties": [
+        {
+          "name": "sih:storage",
+          "value": "SQLite registry; SHA-256 attested in signed trust manifest; authority pinned"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "sig/ml-dsa",
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "algorithmRef": "crypto/ml-dsa-44",
+          "size": 19360,
+          "type": "signature"
+        }
+      },
+      "name": "ML-DSA-44 signature",
+      "properties": [
+        {
+          "name": "sih:storage",
+          "value": "ledger_blocks, sessions, trust_manifests"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "key/cek",
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "algorithmRef": "crypto/aes-256-gcm",
+          "securedBy": {
+            "algorithmRef": "crypto/aes-256-gcm",
+            "mechanism": "AES-256-GCM wrap under HKDF(ML-KEM shared secret)"
+          },
+          "size": 256,
+          "type": "secret-key"
+        }
+      },
+      "name": "Content encryption key",
+      "properties": [
+        {
+          "name": "sih:storage",
+          "value": "never stored in plaintext; wrapped per recipient"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "key/kem-shared-secret",
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "algorithmRef": "crypto/ml-kem-768",
+          "size": 256,
+          "type": "shared-secret"
+        }
+      },
+      "name": "ML-KEM shared secret",
+      "properties": [
+        {
+          "name": "sih:storage",
+          "value": "ephemeral, process memory only"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "iv/aes-gcm-nonce",
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "algorithmRef": "crypto/aes-256-gcm",
+          "size": 96,
+          "type": "nonce"
+        }
+      },
+      "name": "AES-GCM nonce",
+      "properties": [
+        {
+          "name": "sih:storage",
+          "value": "stored beside ciphertext; random per encryption"
+        }
+      ],
+      "type": "cryptographic-asset"
+    },
+    {
+      "bom-ref": "salt/keystore",
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "algorithmRef": "crypto/scrypt",
+          "size": 128,
+          "type": "salt"
+        }
+      },
+      "name": "Keystore scrypt salt",
+      "properties": [
+        {
+          "name": "sih:storage",
+          "value": "keystore header (authenticated as AAD)"
+        }
+      ],
+      "type": "cryptographic-asset"
+    }
+  ],
+  "metadata": {
+    "authors": [
+      {
+        "name": "SIH26237 team"
+      }
+    ],
+    "component": {
+      "bom-ref": "sih26237",
+      "name": "sih26237-offline-forensic-attribution",
+      "type": "application",
+      "version": "3.0.0"
+    },
+    "properties": [
+      {
+        "name": "sih:bom-kind",
+        "value": "CBOM (includes QBOM quantum-vulnerability flags)"
+      },
+      {
+        "name": "sih:guideline",
+        "value": "CERT-In Technical Guidelines on SBOM, QBOM & CBOM, AIBOM and HBOM v2.0"
+      },
+      {
+        "name": "sih:generated-offline",
+        "value": "true"
+      }
+    ]
+  },
+  "serialNumber": "urn:uuid:ed97712c-1915-5007-89a8-12bfc9a24932",
+  "specVersion": "1.6",
+  "version": 1
+}

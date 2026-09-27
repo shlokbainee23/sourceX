@@ -1,0 +1,57 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environments
+.env
+.env.*
+.venv/
+venv/
+ENV/
+env/
+
+# Frontend dependencies and builds
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.local
+frontend/.env.local
+
+# Databases & Runtime Generated Files
+backend/data/sih26237.sqlite
+backend/data/documents/*.bin
+backend/data/documents/*.pdf
+!backend/data/documents/.gitkeep
+
+# Temporary Decrypted and Test PDFs
+DOC-*.pdf
+test_*.pdf
+leak_*.pdf
+diff_*.png
+*.log
+
+# Keystores (encrypted) and legacy plaintext key files - never commit
+backend/data/keystore/*.key.json
+backend/data/keystore/*.keystore.json
+backend/data/keystore/*.tmp
+!backend/data/keystore/.gitkeep
+backend/data/ledger_head.json
+
+# Deployment-specific authority pin (distributed out-of-band)
+trust_anchor/
+
+# Operating System & IDE Artifacts
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local tooling
+.pytest_cache/
+wheelhouse/
+witness_data/
+

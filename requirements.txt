@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+pydantic
+python-multipart
+cryptography
+pymupdf
+mlkem
+dilithium-py
+httpx
+pytest

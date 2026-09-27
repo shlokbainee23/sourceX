@@ -1,0 +1,4367 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "bom-ref": "pkg:pypi/annotated-doc@0.0.5",
+      "description": "Document parameters, class attributes, return types, and variables inline, with Annotated.",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4c32bb7e383a555fec6162c7c7f905d366f688e6e228295c32b822c3d669d769"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "annotated-doc",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/annotated-doc@0.0.5",
+      "scope": "required",
+      "supplier": {
+        "name": "=?utf-8?q?Sebasti=C3=A1n_Ram=C3=ADrez?="
+      },
+      "type": "library",
+      "version": "0.0.5"
+    },
+    {
+      "bom-ref": "pkg:pypi/annotated-types@0.8.0",
+      "description": "Reusable constraint types to use with typing.Annotated",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3999aa3e7cd1afa1ae67b55bf5b04bbc3ca55fdd6c7dcfe571b1aad05da849af"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "annotated-types",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/annotated-types@0.8.0",
+      "scope": "required",
+      "supplier": {
+        "name": "Adrian Garcia Badaracco"
+      },
+      "type": "library",
+      "version": "0.8.0"
+    },
+    {
+      "bom-ref": "pkg:pypi/anyio@4.15.1",
+      "description": "High-level concurrency and networking framework on top of asyncio or Trio",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "335fdf50255512ac058cbf13ebc9d66aecd2667ba9629de9e11bef95910eb3f9"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "anyio",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/anyio@4.15.1",
+      "scope": "required",
+      "supplier": {
+        "name": "Alex Grönholm"
+      },
+      "type": "library",
+      "version": "4.15.1"
+    },
+    {
+      "bom-ref": "pkg:pypi/certifi@2026.7.22",
+      "description": "Python package for providing Mozilla's CA Bundle.",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e6c48519c08f2bbe98bb8ccb9c3aa9a157fd41de210173fe047e77b8e8d35421"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Mozilla Public License 2.0 (MPL 2.0)"
+        }
+      ],
+      "name": "certifi",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/certifi@2026.7.22",
+      "scope": "required",
+      "supplier": {
+        "name": "Kenneth Reitz"
+      },
+      "type": "library",
+      "version": "2026.7.22"
+    },
+    {
+      "bom-ref": "pkg:pypi/cffi@2.1.1",
+      "description": "Foreign Function Interface for Python calling C code.",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "47c82fb2b5bc7c6dd741d62155c94481f9e4974bfafa583587ffbbfabbee5fbd"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT-0"
+        }
+      ],
+      "name": "cffi",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/cffi@2.1.1",
+      "scope": "required",
+      "supplier": {
+        "name": "Armin Rigo, Maciej Fijalkowski"
+      },
+      "type": "library",
+      "version": "2.1.1"
+    },
+    {
+      "bom-ref": "pkg:pypi/click@8.5.0",
+      "description": "Composable command line interface toolkit",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4a523c0c5110a56f01ccedcea0dd40973a227083ead89333427baf414cb21c95"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "click",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/click@8.5.0",
+      "scope": "required",
+      "supplier": {
+        "name": "NOASSERTION"
+      },
+      "type": "library",
+      "version": "8.5.0"
+    },
+    {
+      "bom-ref": "pkg:pypi/colorama@0.4.6",
+      "description": "Cross-platform colored terminal text.",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2de1747809a165c7c54a2fd115a569a061e6eedf56d5c6db3fe0dc8a2985562f"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD License"
+        }
+      ],
+      "name": "colorama",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/colorama@0.4.6",
+      "scope": "required",
+      "supplier": {
+        "name": "Jonathan Hartley"
+      },
+      "type": "library",
+      "version": "0.4.6"
+    },
+    {
+      "bom-ref": "pkg:pypi/cryptography@50.0.1",
+      "description": "cryptography is a package which provides cryptographic recipes and primitives to Python developers.",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "836659ddcc621f79c81165dbfe7793c1cd101fa4126e692d07dc534a078af95c"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR BSD-3-Clause"
+        }
+      ],
+      "name": "cryptography",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "true"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/cryptography@50.0.1",
+      "scope": "required",
+      "supplier": {
+        "name": "The Python Cryptographic Authority and individual contributors"
+      },
+      "type": "library",
+      "version": "50.0.1"
+    },
+    {
+      "bom-ref": "pkg:pypi/dilithium-py@1.4.0",
+      "description": "A pure python implementation of ML-DSA (FIPS 204)",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ed31183009e5dea827e0ebb9ec6902dd28e56fadcbfaa58b5517fea89bef3eab"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "dilithium-py",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "true"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/dilithium-py@1.4.0",
+      "scope": "required",
+      "supplier": {
+        "name": "NOASSERTION"
+      },
+      "type": "library",
+      "version": "1.4.0"
+    },
+    {
+      "bom-ref": "pkg:pypi/fastapi@0.141.1",
+      "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2325dc43bf6c9c64008c475d59b15c8323c67d4ef6443c7e7e7b50820f5cbced"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "fastapi",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "true"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/fastapi@0.141.1",
+      "scope": "required",
+      "supplier": {
+        "name": "=?utf-8?q?Sebasti=C3=A1n_Ram=C3=ADrez?="
+      },
+      "type": "library",
+      "version": "0.141.1"
+    },
+    {
+      "bom-ref": "pkg:pypi/h11@0.16.0",
+      "description": "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3a11572d1a11c198b9ab7cc31a1fb685997c7596b566e5074983161f0f0cfec9"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT License"
+        }
+      ],
+      "name": "h11",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/h11@0.16.0",
+      "scope": "required",
+      "supplier": {
+        "name": "Nathaniel J. Smith"
+      },
+      "type": "library",
+      "version": "0.16.0"
+    },
+    {
+      "bom-ref": "pkg:pypi/httpcore@1.0.9",
+      "description": "A minimal low-level HTTP client.",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "491f4b59545289189a7adb8ad6e318069ac16e2d254dd8b66b0a6ebd5f2a262a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "httpcore",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/httpcore@1.0.9",
+      "scope": "required",
+      "supplier": {
+        "name": "Tom Christie"
+      },
+      "type": "library",
+      "version": "1.0.9"
+    },
+    {
+      "bom-ref": "pkg:pypi/httptools@0.8.0",
+      "description": "A collection of framework independent HTTP protocol utils.",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d3756ee171ad868b2f3dfc5cbbde19832fc2d721dc519d2847b6a554a912e655"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "httptools",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/httptools@0.8.0",
+      "scope": "required",
+      "supplier": {
+        "name": "Yury Selivanov"
+      },
+      "type": "library",
+      "version": "0.8.0"
+    },
+    {
+      "bom-ref": "pkg:pypi/httpx@0.28.1",
+      "description": "The next generation HTTP client.",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f9884c3d9e79b801b80c74bb6a3b9e78f9463c0177e3dfae78f5e9f56008bd51"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD License"
+        }
+      ],
+      "name": "httpx",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "true"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/httpx@0.28.1",
+      "scope": "required",
+      "supplier": {
+        "name": "Tom Christie"
+      },
+      "type": "library",
+      "version": "0.28.1"
+    },
+    {
+      "bom-ref": "pkg:pypi/idna@3.20",
+      "description": "Internationalized Domain Names in Applications (IDNA)",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "060b1d49e9071594a48012559837a4566f4b423f98b0824399d930c5e91a8ba8"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "idna",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/idna@3.20",
+      "scope": "required",
+      "supplier": {
+        "name": "Kim Davies"
+      },
+      "type": "library",
+      "version": "3.20"
+    },
+    {
+      "bom-ref": "pkg:pypi/iniconfig@2.3.0",
+      "description": "brain-dead simple config-ini parsing",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "bdab5ccc2d8990dd463ad03500114718f4875a4794151383a962016c229db881"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "iniconfig",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/iniconfig@2.3.0",
+      "scope": "required",
+      "supplier": {
+        "name": "Ronny Pfannschmidt"
+      },
+      "type": "library",
+      "version": "2.3.0"
+    },
+    {
+      "bom-ref": "pkg:pypi/mlkem@0.0.3",
+      "description": "A module-latice-based key-encapsulation mechanism (ML-KEM). Implements the FIPS-203 standard.",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "14c75286c31ddb025a0de3f595dc2acb727c36348e19bfaef66c6ff173def52c"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "NOASSERTION"
+        }
+      ],
+      "name": "mlkem",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "true"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/mlkem@0.0.3",
+      "scope": "required",
+      "supplier": {
+        "name": "NOASSERTION"
+      },
+      "type": "library",
+      "version": "0.0.3"
+    },
+    {
+      "bom-ref": "pkg:pypi/packaging@26.3",
+      "description": "Core utilities for Python packages",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8c69191044e577ab83c6b2990bc6fd7cfb441e6027ef5bb9e1c49c1dce2cedce"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR BSD-2-Clause"
+        }
+      ],
+      "name": "packaging",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/packaging@26.3",
+      "scope": "required",
+      "supplier": {
+        "name": "Donald Stufft"
+      },
+      "type": "library",
+      "version": "26.3"
+    },
+    {
+      "bom-ref": "pkg:pypi/pluggy@1.6.0",
+      "description": "plugin and hook calling mechanisms for python",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0c8470693e1344e803e7cae8b9ace2de40e7a1e8cc34be1b7f81fcd7393ae970"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT License"
+        }
+      ],
+      "name": "pluggy",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/pluggy@1.6.0",
+      "scope": "required",
+      "supplier": {
+        "name": "Holger Krekel"
+      },
+      "type": "library",
+      "version": "1.6.0"
+    },
+    {
+      "bom-ref": "pkg:pypi/pycparser@3.0",
+      "description": "C parser in Python",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9d11e0aaa5bbd94ac91d34b9e836c66d782fa3f0eaebf473040c979a9ae68b99"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "pycparser",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/pycparser@3.0",
+      "scope": "required",
+      "supplier": {
+        "name": "Eli Bendersky"
+      },
+      "type": "library",
+      "version": "3.0"
+    },
+    {
+      "bom-ref": "pkg:pypi/pydantic@2.13.5",
+      "description": "Data validation using Python type hints",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e1d9ec6c04feeed0b3b59316f725dd8fdc38524496075088d86179d4d1d3fc49"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "pydantic",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "true"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/pydantic@2.13.5",
+      "scope": "required",
+      "supplier": {
+        "name": "Samuel Colvin"
+      },
+      "type": "library",
+      "version": "2.13.5"
+    },
+    {
+      "bom-ref": "pkg:pypi/pydantic-core@2.46.5",
+      "description": "Core functionality for Pydantic validation and serialization",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2183d1c2395480ce16b4ae2c7e355aeae91c29141edd48497afc3aa0dd758799"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "pydantic-core",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/pydantic-core@2.46.5",
+      "scope": "required",
+      "supplier": {
+        "name": "Samuel Colvin"
+      },
+      "type": "library",
+      "version": "2.46.5"
+    },
+    {
+      "bom-ref": "pkg:pypi/pygments@2.21.0",
+      "description": "Pygments is a syntax highlighting package written in Python.",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b2731c03d07551f1268103e1df46ed5107048d25714d485bca7758bc5ff71b30"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-2-Clause"
+        }
+      ],
+      "name": "pygments",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/pygments@2.21.0",
+      "scope": "required",
+      "supplier": {
+        "name": "Matthäus G. Chajdas"
+      },
+      "type": "library",
+      "version": "2.21.0"
+    },
+    {
+      "bom-ref": "pkg:pypi/pymupdf@1.28.2",
+      "description": "A high performance Python library for data extraction, analysis, conversion & manipulation of PDF (and other) documents.",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3309699659e3aee5384a6af170bf7b877394c42538fbcad963d9cb26b4c2c9ea"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Dual Licensed - GNU AFFERO GPL 3.0 or Artifex Commercial License"
+        }
+      ],
+      "name": "pymupdf",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "true"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/pymupdf@1.28.2",
+      "scope": "required",
+      "supplier": {
+        "name": "Artifex"
+      },
+      "type": "library",
+      "version": "1.28.2"
+    },
+    {
+      "bom-ref": "pkg:pypi/pytest@9.1.1",
+      "description": "pytest: simple powerful testing with Python",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d948e0fdad0fdd3a98832f79def75c3638221db3b888c600529b1d4b8ad23b11"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "pytest",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "true"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/pytest@9.1.1",
+      "scope": "required",
+      "supplier": {
+        "name": "Brianna Laugher, Bruno Oliveira, Floris Bruynooghe, Freya Bruhin, Holger Krekel, Others (See AUTHORS), Ronny Pfannschmidt"
+      },
+      "type": "library",
+      "version": "9.1.1"
+    },
+    {
+      "bom-ref": "pkg:pypi/python-dotenv@1.2.3",
+      "description": "Read key-value pairs from a .env file and set them as environment variables",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "90b4bb3128d679e9746a36d747b05abf1cee95a8f52f6d077ed0a4b019246c08"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "python-dotenv",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/python-dotenv@1.2.3",
+      "scope": "required",
+      "supplier": {
+        "name": "Saurabh Kumar"
+      },
+      "type": "library",
+      "version": "1.2.3"
+    },
+    {
+      "bom-ref": "pkg:pypi/python-multipart@0.0.32",
+      "description": "A streaming multipart parser for Python",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fe7d0f8589120407eee0446d64e6cdd4f4c26706d6f336aebdefaa8b504abbd9"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "name": "python-multipart",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "true"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/python-multipart@0.0.32",
+      "scope": "required",
+      "supplier": {
+        "name": "Andrew Dunham"
+      },
+      "type": "library",
+      "version": "0.0.32"
+    },
+    {
+      "bom-ref": "pkg:pypi/pyyaml@6.0.3",
+      "description": "YAML parser and emitter for Python",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8192cce9eb03fd9bc6afd05abcf791fb6835ef5c46b629eefa05ad315be3d915"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT License"
+        }
+      ],
+      "name": "pyyaml",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/pyyaml@6.0.3",
+      "scope": "required",
+      "supplier": {
+        "name": "Kirill Simonov"
+      },
+      "type": "library",
+      "version": "6.0.3"
+    },
+    {
+      "bom-ref": "pkg:pypi/starlette@1.7.0",
+      "description": "The little ASGI library that shines.",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e3b2112a72ed27cf3a34020d8fccf66217dbff7b731ce343bc174254860ed151"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "starlette",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/starlette@1.7.0",
+      "scope": "required",
+      "supplier": {
+        "name": "Tom Christie"
+      },
+      "type": "library",
+      "version": "1.7.0"
+    },
+    {
+      "bom-ref": "pkg:pypi/typing-extensions@4.16.0",
+      "description": "Backported and Experimental Type Hints for Python 3.9+",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a346a921aa5be35b34ced3258614183d152887b954caaae5de2a94be72d5f2ec"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "PSF-2.0"
+        }
+      ],
+      "name": "typing-extensions",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/typing-extensions@4.16.0",
+      "scope": "required",
+      "supplier": {
+        "name": "\"Guido van Rossum, Jukka Lehtosalo, Łukasz Langa, Michael Lee\""
+      },
+      "type": "library",
+      "version": "4.16.0"
+    },
+    {
+      "bom-ref": "pkg:pypi/typing-inspection@0.4.4",
+      "description": "Runtime typing introspection tools",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "06f60204c0b7d67df21f09681e2db4781ef463cad5fb7dfc7a749b232a0ec8ae"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "typing-inspection",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/typing-inspection@0.4.4",
+      "scope": "required",
+      "supplier": {
+        "name": "Victorien Plot"
+      },
+      "type": "library",
+      "version": "0.4.4"
+    },
+    {
+      "bom-ref": "pkg:pypi/uvicorn@0.54.0",
+      "description": "The lightning-fast ASGI server.",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4583ba689d9d7a3b6b6a3f5ac17e6705e296d72809ef9cdf4e9e97f0a01af7a2"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "uvicorn",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "true"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/uvicorn@0.54.0",
+      "scope": "required",
+      "supplier": {
+        "name": "Tom Christie"
+      },
+      "type": "library",
+      "version": "0.54.0"
+    },
+    {
+      "bom-ref": "pkg:pypi/watchfiles@1.3.0",
+      "description": "Simple, modern and high performance file watching and code reload in python.",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1675da33441b7fd2d8d50d4fadf0854106085843fa8ce736ea8dfdc4c9d0e2ac"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT License"
+        }
+      ],
+      "name": "watchfiles",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/watchfiles@1.3.0",
+      "scope": "required",
+      "supplier": {
+        "name": "Samuel Colvin"
+      },
+      "type": "library",
+      "version": "1.3.0"
+    },
+    {
+      "bom-ref": "pkg:pypi/websockets@17.1",
+      "description": "An implementation of the WebSocket Protocol (RFC 6455 & 7692)",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d508be333947bb4bb1a1c04f41eeaf8426cfa71faef0bd82f03c929c3c4c63e9"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "websockets",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "python"
+        },
+        {
+          "name": "sih:direct-dependency",
+          "value": "false"
+        },
+        {
+          "name": "sih:hash-basis",
+          "value": "SHA-256 of the installed dist-info RECORD (per-file hashes)"
+        }
+      ],
+      "purl": "pkg:pypi/websockets@17.1",
+      "scope": "required",
+      "supplier": {
+        "name": "Aymeric Augustin"
+      },
+      "type": "library",
+      "version": "17.1"
+    },
+    {
+      "bom-ref": "pkg:npm/@jridgewell/gen-mapping@0.3.13",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "da492dffb9e227a32010fc45d1b61d43a7ad65a03e7d0bc370b29c921cb5c8840ecdaa0a8c10634a3eb7fda2d58d8137aa146de5dbccfae5327c283a50a0816c"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@jridgewell/gen-mapping",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40jridgewell/gen-mapping@0.3.13",
+      "scope": "required",
+      "type": "library",
+      "version": "0.3.13"
+    },
+    {
+      "bom-ref": "pkg:npm/@jridgewell/remapping@2.3.5",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "2c8f6effe95a606e03b354c3292256d983eb22571560ec22d9f502eb1078de5b9e0a383157895f7ce0990ad605887e9334e5feb50297c7ded3e082876e1c8711"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@jridgewell/remapping",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40jridgewell/remapping@2.3.5",
+      "scope": "required",
+      "type": "library",
+      "version": "2.3.5"
+    },
+    {
+      "bom-ref": "pkg:npm/@jridgewell/resolve-uri@3.1.2",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "6d12128022233f6d3fb5b5923d63048b9e1054f45913192e0fd9492fe508c542adc15240f305b54eb6f58ccb354455e8d42053359ff98690bd42f98a59da292b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@jridgewell/resolve-uri",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40jridgewell/resolve-uri@3.1.2",
+      "scope": "required",
+      "type": "library",
+      "version": "3.1.2"
+    },
+    {
+      "bom-ref": "pkg:npm/@jridgewell/sourcemap-codec@1.6.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "4fb8dffb9ce0b191f0349e25bd0eff69ecdbca4d27357fb32555a998703b558b04c7b6bbaabe5183921bb4916a920cdee58dacaeeab545463c43cdfb39dee217"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@jridgewell/sourcemap-codec",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.6.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.6.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@jridgewell/trace-mapping@0.3.31",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "cf3351f9275048327373c8e869e3fc410a0242bf0db98c76748232b65d507811191c9f6e5ba85e6ecad881bcfc849c1441aa374d608cb667d5f0dbb5b7038b03"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@jridgewell/trace-mapping",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40jridgewell/trace-mapping@0.3.31",
+      "scope": "required",
+      "type": "library",
+      "version": "0.3.31"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxc-project/types@0.151.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "275c97ac894d0d957313769d6b7d74c5e030ee71fcc820322cfb9422c8ca6ad14f99f9f96d2d685be70cf90b063ad5567799e14a96f0656c7faee7beaf967e3c"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxc-project/types",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40oxc-project/types@0.151.0",
+      "scope": "required",
+      "type": "library",
+      "version": "0.151.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-android-arm-eabi@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "ab628efd9b28f544fe38c9f4345f72c27e04e2dd0c237cb188384dca1b10ec3c9026b0b8161144e135ce8b86e4b459ce5974cc76cf2a6526e9bf65f045a34e06"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-android-arm-eabi",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-android-arm-eabi@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-android-arm64@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "4b12cddc02e3a13f4d35dbe98c47af19e1ef7f34c016b174341601e6dccaeff1ad08a3337b78f57bf9bf5f6a33a868f653d85f186fdd83f386f2fa552b83e20c"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-android-arm64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-android-arm64@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-darwin-arm64@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "63f4aea7f2787f47fd506b1277fc7208d4de58bfa07a93badc605d10301fb9ef6706c9e4f733269c85f1d4ee9bd55f02f74bc1e67b9c60d674a5b317029f3324"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-darwin-arm64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-darwin-arm64@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-darwin-x64@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "029392342d38ca7a434f0bc10fefffd30c9f3834526c4cef4682a95fcb5e7df99cdbbcfc028724c1235e3171895e7e4a3fce5e6a10e047fda59480962e4cdc9f"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-darwin-x64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-darwin-x64@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-freebsd-x64@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "6cdad5ac2380fe41e4cb74eeefd2175977b96e12202d77d4b941031e5006387524f7a324bc367579c690175f6bc2cb6b9daa9f3f5a3d9c14eacc8afdf991e452"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-freebsd-x64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-freebsd-x64@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-linux-arm-gnueabihf@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "354af3389d6cfc4aac56f7e7d8bff50fc5aba362cf21951b8a12fc90e24b8797c474610ddeb74e19462adc7c275082fcb23a683fee0de91686ae098c26768c3f"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-linux-arm-gnueabihf",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-linux-arm-gnueabihf@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-linux-arm-musleabihf@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "5095eb013dc4fd15a412a5cb22cd9e8444e36b5a9f8243dbfb98302c8212fa8ffa71ffa0ac7be83974dae7df7b6bf60d41f7094b40d105339f66df7972f388d6"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-linux-arm-musleabihf",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-linux-arm-musleabihf@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-linux-arm64-gnu@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "94ae3440b8c8d07c6280eec28c30ec844b5f6087a2612d34db4bf904714fa8de2eb90050c5dd8af4b3689b6756d79a3d175f77eeab92091569e19b1585d6d876"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-linux-arm64-gnu",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-linux-arm64-gnu@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-linux-arm64-musl@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "736cdb741c062ab7875f0471de0581b85189c4b87182c83a62567edc7f91811bac53f50457d8cdc09dc71982be9d1a342ef05aee6b7a2a3f3ac68568b54a3c73"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-linux-arm64-musl",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-linux-arm64-musl@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-linux-ppc64-gnu@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "b65b7f1f2f2567deff9423e60a0c3f07793f9b087e0736883db3e495d644972ed3c0b9b1d317b609071a5b683fad1d1d3a04bd24d18266c304a8b85434c1af6b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-linux-ppc64-gnu",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-linux-ppc64-gnu@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-linux-riscv64-gnu@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "ded351f577b2f365f4ccab98d5df2127a45cf60c110eeae6a862e74196b9c6a397cbcfd8ca2a855e302dba090a2d8f36a1b3a5a4ad5e4a20d196070d3eec6d22"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-linux-riscv64-gnu",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-linux-riscv64-gnu@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-linux-riscv64-musl@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "c1b1917793ea09c8e42451e166e676381494418f5cce542ca00fdc41007d24afcbf660b9310806a0a021fb177c42303957ed03de3f907759405a7d48f3395e94"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-linux-riscv64-musl",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-linux-riscv64-musl@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-linux-s390x-gnu@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "dd29f4912ac4e033d909657ff28fa7e31dda159c48f6e94c9e4625c026c9f1e51593044ad887aba2113f03fcf748d6c2c283c5382266184e40bebab4aebbddbd"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-linux-s390x-gnu",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-linux-s390x-gnu@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-linux-x64-gnu@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "258da9c7161f07ad9b0067de8e58d50aa738e1eb48b5e84fb80c9a79201d32e10cb70340d348203274baea50b5a08868b3aa0e5d492e53a999f5ba4587706a5a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-linux-x64-gnu",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-linux-x64-gnu@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-linux-x64-musl@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "e64ef8bd9eaa2418c11c43a5064f41fe2bfaf18bb417501fc3fbef4f66abe8e182a847972da4a35f3da7fc83c26e12c6db65282a8604253ce962b69175ca7a3c"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-linux-x64-musl",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-linux-x64-musl@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-openharmony-arm64@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "19b025e6ab794c290f2d74da208499267ba0adc061adaeaba1d71773d8d8b7adb452d76c4edef53653662669b47ebc73169779e31fc6f8c922b44240f08fc1a0"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-openharmony-arm64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-openharmony-arm64@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-win32-arm64-msvc@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "9239b0b3930ad1eb76b30938343f390fb3554320c7c35eb68bac21b590cb500fe5a3a150c8164372631108c71565c36b02121a7ed55bd34c7d0a11833a38cd24"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-win32-arm64-msvc",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-win32-arm64-msvc@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-win32-ia32-msvc@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "792b08271f67e32c6f3aa6136723c433211746613ad171fbc46014ee2d106ec9f595fe996b709627d69177cda84852976b1869fac03aff23095512292e99dae8"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-win32-ia32-msvc",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-win32-ia32-msvc@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@oxlint/binding-win32-x64-msvc@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "a4179b20f52928a856ae148c5a1cbc4dd01905ec225e77f199a006c61cf1335d3af066a0a85693c202a553a7be532276b0f47e5681e8ba15ee1899108ecac3bc"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@oxlint/binding-win32-x64-msvc",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40oxlint/binding-win32-x64-msvc@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@rolldown/binding-android-arm-eabi@1.2.11",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "0399177c62af2965991344ed3eb7ecbd3faae18e5dd501bc806533a588c6c9d33e7c044cf4cb97f743eb5d85ded176ec0d5832c713731e8ea08828fdd1bb0537"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@rolldown/binding-android-arm-eabi",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40rolldown/binding-android-arm-eabi@1.2.11",
+      "scope": "required",
+      "type": "library",
+      "version": "1.2.11"
+    },
+    {
+      "bom-ref": "pkg:npm/@rolldown/binding-android-arm64@1.2.11",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "cfa713c9ccfe889e0f564b8be071d6e037d37e8794ff69ea618b923ab4e61fbc872b96342c23a7034dd5e193716afc95694d683aa520220da494dfecf9448638"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@rolldown/binding-android-arm64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40rolldown/binding-android-arm64@1.2.11",
+      "scope": "required",
+      "type": "library",
+      "version": "1.2.11"
+    },
+    {
+      "bom-ref": "pkg:npm/@rolldown/binding-darwin-arm64@1.2.11",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "8d286fa8db4feaf0c2ebf03924e0336d557e0e4807aa197f49c5422446edf93518e90633ed89d772b837b0bb450678aba347ff2dde7467009603a7fb2980f59d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@rolldown/binding-darwin-arm64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40rolldown/binding-darwin-arm64@1.2.11",
+      "scope": "required",
+      "type": "library",
+      "version": "1.2.11"
+    },
+    {
+      "bom-ref": "pkg:npm/@rolldown/binding-darwin-x64@1.2.11",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "7f68b6c62356ab5675976fbeab67ee85945d2c04f76aac43eaf44d9b5440c6952805c76a341dc2d2cd41b7e2be3db131d85e45e20429ea1a8a92984263fc45f7"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@rolldown/binding-darwin-x64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40rolldown/binding-darwin-x64@1.2.11",
+      "scope": "required",
+      "type": "library",
+      "version": "1.2.11"
+    },
+    {
+      "bom-ref": "pkg:npm/@rolldown/binding-freebsd-x64@1.2.11",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "e08af915238a20032be2bd24131a6dd6cddb320cc9537ac0e39018387b50a65b34a0d7aa71804aad6325724ad81f82827c62df91f9f5b4dd5d9993cc56c757a3"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@rolldown/binding-freebsd-x64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40rolldown/binding-freebsd-x64@1.2.11",
+      "scope": "required",
+      "type": "library",
+      "version": "1.2.11"
+    },
+    {
+      "bom-ref": "pkg:npm/@rolldown/binding-linux-arm-gnueabihf@1.2.11",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "fe09d10ccfb7f4144ecc037f9353998c33e70cc719c41ff4114c4a8ce34ee72564344be5b28303af118d2a0662fedb45ae24b683094337307ae69bcd6c539721"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@rolldown/binding-linux-arm-gnueabihf",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40rolldown/binding-linux-arm-gnueabihf@1.2.11",
+      "scope": "required",
+      "type": "library",
+      "version": "1.2.11"
+    },
+    {
+      "bom-ref": "pkg:npm/@rolldown/binding-linux-arm64-gnu@1.2.11",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "3c568af07c2f0076da29b05c0cd42286330a62f16703986210dc7f979b698530f3d44d16169df697403b6aaee5c94c06b11c3fc52acd232fe020ae2d86b482af"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@rolldown/binding-linux-arm64-gnu",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40rolldown/binding-linux-arm64-gnu@1.2.11",
+      "scope": "required",
+      "type": "library",
+      "version": "1.2.11"
+    },
+    {
+      "bom-ref": "pkg:npm/@rolldown/binding-linux-arm64-musl@1.2.11",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "02c93325420a44b3f192bb91d702ca7b019b3b0f8461f53ff653ab0458f8005ac403c84fa4a16738358dbb658b68db3440d9046fd40826e7e65596482ff6c996"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@rolldown/binding-linux-arm64-musl",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40rolldown/binding-linux-arm64-musl@1.2.11",
+      "scope": "required",
+      "type": "library",
+      "version": "1.2.11"
+    },
+    {
+      "bom-ref": "pkg:npm/@rolldown/binding-linux-ppc64-gnu@1.2.11",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "aa55060217a1db287c69f1fb401831d0fad11cdf3984a9cd77bf31f0c78c8578afb9ebe077cbe07fafc2b2d3b398d298fe52d31ef353acfcbdf1c2e702e83327"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@rolldown/binding-linux-ppc64-gnu",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40rolldown/binding-linux-ppc64-gnu@1.2.11",
+      "scope": "required",
+      "type": "library",
+      "version": "1.2.11"
+    },
+    {
+      "bom-ref": "pkg:npm/@rolldown/binding-linux-s390x-gnu@1.2.11",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "b1e72911a77ed2f09b49f9fcba91724a40ec92ff9b18f9374c74834bd63cf72738adbe24cea1e9f039b277d064416e129e13570590a5ffa0ab3bffe165a84d25"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@rolldown/binding-linux-s390x-gnu",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40rolldown/binding-linux-s390x-gnu@1.2.11",
+      "scope": "required",
+      "type": "library",
+      "version": "1.2.11"
+    },
+    {
+      "bom-ref": "pkg:npm/@rolldown/binding-linux-x64-gnu@1.2.11",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "98e5414f774fa645a6f170563e65386dff94e9d6032de328ffda235268ace0dd0be6ebb5d2aadae6f3b29e067bfcf49da04e06f4abd1b786e5a11c4d8cb6acec"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@rolldown/binding-linux-x64-gnu",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40rolldown/binding-linux-x64-gnu@1.2.11",
+      "scope": "required",
+      "type": "library",
+      "version": "1.2.11"
+    },
+    {
+      "bom-ref": "pkg:npm/@rolldown/binding-linux-x64-musl@1.2.11",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "22cefc8bd03c522e12a9cc54c0527db8c9a30e7e7c21b5538c55987507acb451207ae1261cc2c636b8979d524a9301b6622663c3c70fd33093c8331d0c6b4e3a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@rolldown/binding-linux-x64-musl",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40rolldown/binding-linux-x64-musl@1.2.11",
+      "scope": "required",
+      "type": "library",
+      "version": "1.2.11"
+    },
+    {
+      "bom-ref": "pkg:npm/@rolldown/binding-openharmony-arm64@1.2.11",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "7540979de67cec83543324340fe0b41eb1013543cd5c768f994e464e3c8a4c9122bacb30f4a6a3e4b9fc533b4f7b87a957f7dfbe034111a764b1d621996eb124"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@rolldown/binding-openharmony-arm64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40rolldown/binding-openharmony-arm64@1.2.11",
+      "scope": "required",
+      "type": "library",
+      "version": "1.2.11"
+    },
+    {
+      "bom-ref": "pkg:npm/@rolldown/binding-win32-arm64-msvc@1.2.11",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "8c1cb16faa9f77e6c7d7151dd2a9df1676f5ee2f6c5813d8dad39abc9d25ded76bdce4eef8abed9bc71dfc95799c5b7ae7b6f556a1a5b7183da253847e87d75b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@rolldown/binding-win32-arm64-msvc",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40rolldown/binding-win32-arm64-msvc@1.2.11",
+      "scope": "required",
+      "type": "library",
+      "version": "1.2.11"
+    },
+    {
+      "bom-ref": "pkg:npm/@rolldown/binding-win32-x64-msvc@1.2.11",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "fcfccaab3009d378b5f68cb622d3efcaf6958ce8c108d9df689b3ccaf51d1812a68844a09eb2524366b077cd50cc56db9c09aeed83bd66726b0c26fd55224f44"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@rolldown/binding-win32-x64-msvc",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40rolldown/binding-win32-x64-msvc@1.2.11",
+      "scope": "required",
+      "type": "library",
+      "version": "1.2.11"
+    },
+    {
+      "bom-ref": "pkg:npm/@rolldown/pluginutils@1.0.1",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "da3f5b1ade4987c863faf3ed8333ed97bda3d324711c0cae9a8a3a4cd7c08ec2c1d3852da52bcf6cf703701331cfb9fef42601d1cd46c501716118368e29aa1b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@rolldown/pluginutils",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40rolldown/pluginutils@1.0.1",
+      "scope": "required",
+      "type": "library",
+      "version": "1.0.1"
+    },
+    {
+      "bom-ref": "pkg:npm/@tailwindcss/node@4.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "fd3f08284b1ff554d4ead2e3802efeb2fda638fb50c731368ccc3bbb84ede344f1f90499c69ce1f79fc7e9c30aa236bd5ee5bb88c74b258041d28f46d4268082"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@tailwindcss/node",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40tailwindcss/node@4.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "4.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/@tailwindcss/oxide-android-arm64@4.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "63ce40da098f4a497955ee6a47ce862f81d3e74f5c16a421d5a7acf69dec4a4c933f0b743e9a5fdc693019ee093c009c4588e024812142033a7410a59ebd0d63"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@tailwindcss/oxide-android-arm64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40tailwindcss/oxide-android-arm64@4.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "4.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/@tailwindcss/oxide-darwin-arm64@4.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "0626966ada4170445014394e8d10e92155ee14ae4f25ecf9480e09320e95619741614faa29f57fbea8dc22cf88626b62b5fd71610653c17bd4ffccb895f6541b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@tailwindcss/oxide-darwin-arm64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40tailwindcss/oxide-darwin-arm64@4.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "4.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/@tailwindcss/oxide-darwin-x64@4.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "7c0794a9f5799dd8714706a2f1c5c6cdd2efba5f6eb563a679392febdba7bf86578b18e7eb567ea7d94259dc0ec00dd361ba06dc1c1d56e37f4438e10519749b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@tailwindcss/oxide-darwin-x64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40tailwindcss/oxide-darwin-x64@4.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "4.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/@tailwindcss/oxide-freebsd-x64@4.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "8b27f96d5ebec270257e555e132ed1db976ea714cd10264de50308d2a353e9e4fe12068675970a84692be5276869688b277b292ea218f5509e486af09ad83893"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@tailwindcss/oxide-freebsd-x64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40tailwindcss/oxide-freebsd-x64@4.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "4.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/@tailwindcss/oxide-linux-arm-gnueabihf@4.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "680614a6b2402505966d1acfbed8ddae8679e8c77e24cf29322a294bac461300df2e1aa3fb6bdeaf6a789d4e0c6f7091a9c3263418e8f0a91481cc6193355019"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@tailwindcss/oxide-linux-arm-gnueabihf",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40tailwindcss/oxide-linux-arm-gnueabihf@4.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "4.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/@tailwindcss/oxide-linux-arm64-gnu@4.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "9c3c6575c10434ec594730b6baef63aeeb59740010b5bfbc5960c24a758bd73bc1935f8537ec7a32d0d588f07900931fb6d5425217a1196bacdd704f81ab4cff"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@tailwindcss/oxide-linux-arm64-gnu",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40tailwindcss/oxide-linux-arm64-gnu@4.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "4.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/@tailwindcss/oxide-linux-arm64-musl@4.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "31de386c3eaf797fcf0b98b217c703567c381c12003597a945967b6bc0d03af91fa39594070729ea202e094cf6deefb84949212650f778bee135d5bc7b377f90"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@tailwindcss/oxide-linux-arm64-musl",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40tailwindcss/oxide-linux-arm64-musl@4.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "4.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/@tailwindcss/oxide-linux-x64-gnu@4.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "b71eeeb359aec0e2802966a8daffc669a7c57906e813a6a3f3cbc2eb388dd8d0867119bc816521c23ce0f987550757b86e802d76d99ae0be37a27ba723a352e3"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@tailwindcss/oxide-linux-x64-gnu",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40tailwindcss/oxide-linux-x64-gnu@4.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "4.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/@tailwindcss/oxide-linux-x64-musl@4.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "489c57eb4b26bc781ab19a01cb5d5d5fa6118d7245a2fc1606879d85b40f381ce0156047181f9354f581f41c7347b4d3c54f05419008d80ca2342333166f089a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@tailwindcss/oxide-linux-x64-musl",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40tailwindcss/oxide-linux-x64-musl@4.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "4.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/@tailwindcss/oxide-wasm32-wasi@4.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "8f1d7eacf858ff9626a6492d77ae7a1c158404bc4fedd1f4ea5a2c04b8e37f9be008e0d7be2f4a86d7ed59c308c131480ea06bedc46742474b9c01be20e946bd"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@tailwindcss/oxide-wasm32-wasi",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40tailwindcss/oxide-wasm32-wasi@4.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "4.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/@tailwindcss/oxide-win32-arm64-msvc@4.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "deb736f7609ad9c78ae9495c73f6c05674ecff79c3b683e1c842a580fbfec902508bf252fc030996acf1be50da70bd677a46eb71fe9b4eaa7f8d5e2a8273f135"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@tailwindcss/oxide-win32-arm64-msvc",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40tailwindcss/oxide-win32-arm64-msvc@4.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "4.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/@tailwindcss/oxide-win32-x64-msvc@4.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "c89d29c0855cfe761e1a8574d96b6c37c298c8b42fee4c88db00e791ecf22651868e477840bc03180c25e3b6293c97ae23433439b6971923e3bd60cf7933e083"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@tailwindcss/oxide-win32-x64-msvc",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40tailwindcss/oxide-win32-x64-msvc@4.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "4.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/@tailwindcss/oxide@4.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "92b5e302292268548f68afc5900413e544f1dd5a2b9906a2679841165259f54150181febc20d4c648847006f6c98c4114ddc89c4fe90b7933032d772539156ac"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@tailwindcss/oxide",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40tailwindcss/oxide@4.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "4.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/@tailwindcss/vite@4.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "c9853c72880b79287f9acda387c163ee369b6bf1166bb25ae86a14a9865aada12e088e584ba9ace8e6d98238de766fa39ba5d98dd351581a4f3fa67cea83b173"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@tailwindcss/vite",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/%40tailwindcss/vite@4.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "4.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/@types/react-dom@19.3.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "648edb538da66575ca1e7fea34b130d88adb888354ed7e7ebdf81d8b10479023696165e32a07d0fcffaec866f90a338b07d51c9d37a0debca542d5768729b8e1"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@types/react-dom",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40types/react-dom@19.3.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "19.3.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@types/react@19.3.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "374ac50ae1fd628c46f7f9bad65f4c7e924a7e62ce554d1e9bb8a9233e9346049292f45e2c1f6f2fce4607ecabf01b3995eaa9be0f7a252c05e194b5b38be242"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@types/react",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40types/react@19.3.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "19.3.0"
+    },
+    {
+      "bom-ref": "pkg:npm/@vitejs/plugin-react@6.1.1",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "cb12da415f609214bc7b326a08cebe9dd53b98363a82a020ef9350fb4223c0423c2183a64028244701ca5527d65d6d3be83b2a328d0393ed052b553e33946017"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "@vitejs/plugin-react",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/%40vitejs/plugin-react@6.1.1",
+      "scope": "excluded",
+      "type": "library",
+      "version": "6.1.1"
+    },
+    {
+      "bom-ref": "pkg:npm/csstype@3.2.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "cf51c629c632db103c00641fc2b9f43c0cbe3c1ed7fc64a3dd45495bda8aca7e37c566be825e675e6538aaa2cc4735952c50bc2aeb145fc4ffd240a2398a4021"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "csstype",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/csstype@3.2.3",
+      "scope": "excluded",
+      "type": "library",
+      "version": "3.2.3"
+    },
+    {
+      "bom-ref": "pkg:npm/detect-libc@2.1.2",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "06d8f604e38ef37a375b21f9f5ef0c817b3111055c6ab9143a9118aee6c1d2eaf09cdd74c90dfae2bb22072535d67665a966199b4e62fe87fb8a8e26ce2841b5"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "name": "detect-libc",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/detect-libc@2.1.2",
+      "scope": "required",
+      "type": "library",
+      "version": "2.1.2"
+    },
+    {
+      "bom-ref": "pkg:npm/enhanced-resolve@5.25.1",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "9c65edb39ce72739963eefa6204f62cc23b3760eb7a0971ada60f3196593b61eecaf86824e829ca32155050c0def9223e4f7faa79d74130913a958934730d5fb"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "enhanced-resolve",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/enhanced-resolve@5.25.1",
+      "scope": "required",
+      "type": "library",
+      "version": "5.25.1"
+    },
+    {
+      "bom-ref": "pkg:npm/fdir@6.5.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "b486d8b596ee70eb340511aa3c992c84951874bf920c7edd54cf208f2f84469dd60148cb105244fb4da46a7c87b708d63a7c2b298062c0098cd29e242c90275e"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "fdir",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/fdir@6.5.0",
+      "scope": "required",
+      "type": "library",
+      "version": "6.5.0"
+    },
+    {
+      "bom-ref": "pkg:npm/fsevents@2.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "e71a037d7f9f2fb7da0139da82658fa5b16dc21fd1efb5a630caaa1c64bae42defbc1d181eb805f81d58999df8e35b4c8f99fade4d36d765cda09c339617df43"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "fsevents",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/fsevents@2.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "2.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/graceful-fs@4.2.11",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "45b279fe398570d342703579a3d7939c12c9fc7b33595d0fef76dcf857f89d2feb263f98692e881b288e2f45680585fe9755ab97793ade1fcaac7fa7849d17bd"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "name": "graceful-fs",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/graceful-fs@4.2.11",
+      "scope": "required",
+      "type": "library",
+      "version": "4.2.11"
+    },
+    {
+      "bom-ref": "pkg:npm/jiti@2.7.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "002ffb2687c9bd91abae779635a12725e38b531f89946b7bb4d6b4c198913d3e0c635c267ca8eddbee8eda9daecf6fac92597c39966624c36a7a47bb90a6cd81"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "jiti",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/jiti@2.7.0",
+      "scope": "required",
+      "type": "library",
+      "version": "2.7.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-android-arm64@1.32.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "60aeff0a54ede2400ad2fa3ac375fe3e79b40f671fdaf3c76e139776836d8b519ad1a9753f84c1661c23013be33702c40429cabe325cda34201d71f4344c2502"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-android-arm64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-android-arm64@1.32.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.32.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-android-arm64@1.33.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "804a514da94a768b29e016fca96b5cda23a013949e2079694b5ba9f5b16adb003262197551d4ce6d88877bdf3310cf5242f4a8a906752100f424da60dcc979a6"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-android-arm64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-android-arm64@1.33.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.33.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-darwin-arm64@1.32.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "473786f49bb96da83606fd7f97095526f044deae93b57b247592cb0b27e0e69b7e1cbcfd06a94808eecb64ced51cd4d39ffe4f4611c50528e4e65738726b1c3d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-darwin-arm64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-darwin-arm64@1.32.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.32.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-darwin-arm64@1.33.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "49c89acfc79e9cd4ca9fd6f7b7bfb1af48a94e9f58c4a418e27a704379ab46e2f404054704bc99c687e168a04056dce6b5167fcd3ca8d3fb68e01d6e586fc38e"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-darwin-arm64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-darwin-arm64@1.33.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.33.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-darwin-x64@1.32.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "53e42c069da6fecdb0aa95184ffeb09e56a07596ed65d9dd4a6badfcd26a94270c2d35a9e66b82ac80fe2b9509ea3a83d8116c85e8c26179e23c36cd87bdd5f3"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-darwin-x64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-darwin-x64@1.32.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.32.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-darwin-x64@1.33.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "67950f031ceb8e558d3721b2ea2eb9709cf3be02790f74fac0cbecfa05a963d77ba9184036bc6a029e8b871220661584c35f117c94c6711c63b8b201afe9bc5d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-darwin-x64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-darwin-x64@1.33.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.33.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-freebsd-x64@1.32.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "2424e281e74492c664ded1d34ed86731d55f19feb5164cbc262d84e188d44c4417d78c62cbf953cd79eed6fc2265eddb61ed2af92a6c487fc24de0d72ba5878a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-freebsd-x64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-freebsd-x64@1.32.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.32.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-freebsd-x64@1.33.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "41033f4e2fe141a8c9c0263e4625ae099f6c76d23f5d093b9c32b9bc2f2491dc22c5ecce94382f0f1efe453f908cae857054f8329b2ea019c7228fcedd2b5146"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-freebsd-x64",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-freebsd-x64@1.33.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.33.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-linux-arm-gnueabihf@1.32.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "c7aae79e945ad862f4cd03a4b7aaedb376033f376e2e95afc0017a10c8571556570f8b4fac190416acc6a30cc2b085ac3e3a922beb723443835015de7951d293"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-linux-arm-gnueabihf",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-linux-arm-gnueabihf@1.32.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.32.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-linux-arm-gnueabihf@1.33.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "37b15505eea24b6e0c94ce91ff84414f11a14217991aceed890f54df652d17be4dccfe50ef158f46a2c108ac65450464deb6358c220f2f3c7b5b33a1b942112d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-linux-arm-gnueabihf",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-linux-arm-gnueabihf@1.33.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.33.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-linux-arm64-gnu@1.32.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "d279ccca8c8e2d12577db30e8a569245c2c7dc9c39cfd1c33467d3fe0c023e06838e7c748bcc3bbc1cc52c54757fa08c2ca17c8156de6e69143777dafe4409a5"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-linux-arm64-gnu",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-linux-arm64-gnu@1.32.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.32.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-linux-arm64-gnu@1.33.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "8f6bff8ad9b2e0794dc6573abe829762006a362d0d8362d2860e33ec6b9fa4482cd393fedacb815728bd23a607ab9ba8545c7d1138a7dde08484b5725c64272a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-linux-arm64-gnu",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-linux-arm64-gnu@1.33.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.33.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-linux-arm64-musl@1.32.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "529424a1e9ebe14244ce054862923cd250c5bd198f560ea8a9ba0d1dfa07e024087cd03e1cead9ecca3b2993f4d9d0ba2e38213d025e06cbd7849a1dff09c806"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-linux-arm64-musl",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-linux-arm64-musl@1.32.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.32.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-linux-arm64-musl@1.33.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "ca23b944e32e6108176c2eb4ca3654e4261215918a5cbd071404d7b7d987267d7ecd6e79a02b4c23d35f7158582cc1432fb815ee804fa27fc498c3068363afb5"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-linux-arm64-musl",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-linux-arm64-musl@1.33.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.33.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-linux-x64-gnu@1.32.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "57b42be7622166674a3d5afe56dc3ca3e58bb1025809377c96821fa4368c45619465f04e60425ec89224a862033193f03f1db8a5431fc12c7123ca61aff31b38"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-linux-x64-gnu",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-linux-x64-gnu@1.32.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.32.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-linux-x64-gnu@1.33.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "6abf89bbb2e670dd09a381692f88691726f0346f7fdc0fc1af9296da7da3c8e0e0dcc1195da0d800375e9a8352f810cd7cc80abf29492e3e12e6dc9101cb6e02"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-linux-x64-gnu",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-linux-x64-gnu@1.33.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.33.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-linux-x64-musl@1.32.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "6d870ba7e55bd1ac2c89783ff34b8245ecc2607360d7f9779add20cc79d657d5cfd56e6c29ae7f4c274659a47fcc13363de17f1dbb10bff8f651134e895bb15a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-linux-x64-musl",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-linux-x64-musl@1.32.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.32.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-linux-x64-musl@1.33.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "4588986e4a24c34b6b7caaaacdf179e658229f010fac3dce2437d3b89cc5b3530aea21670de9dacf57ea2cbb57e084c6dce92d2505ce7936b0d5ac2b0409593f"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-linux-x64-musl",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-linux-x64-musl@1.33.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.33.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-win32-arm64-msvc@1.32.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "f126c2f01478d294ba6da08cf2c6ed6034b011541de099454ce95a0f78161877d385370006734305d6ba79365ea9ba1f6a5209845c74a8ace01c999c3d39c677"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-win32-arm64-msvc",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-win32-arm64-msvc@1.32.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.32.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-win32-arm64-msvc@1.33.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "d4af8c3df2d2155a69873a5d6df92195693ac01ad339b0734b64fa75bd743cd399811f46a15b005b3c0dcae8546186d3a76de3fb846b9dc7ee8d9e2e0335efc0"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-win32-arm64-msvc",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-win32-arm64-msvc@1.33.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.33.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-win32-x64-msvc@1.32.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "026abd07f4a86587438b5905ae88e7a2a3cbc58850e16a395e22fc11526b56c07c011a02d4f596e951ad4f458a09e9a3cbc682fa5a2e2678d2ed4d7cc776f4e9"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-win32-x64-msvc",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-win32-x64-msvc@1.32.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.32.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss-win32-x64-msvc@1.33.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "3a5108083c7f5e5d05a92a786ebcbccc59c2bc6a628371a5e200aabaf6301eea892840b5fa7f4d8039e216fa871a632fd5992a0c9ac3a8a292ca44c35fe7a1b8"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss-win32-x64-msvc",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss-win32-x64-msvc@1.33.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.33.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss@1.32.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "357601ce29cdadb95fada3c6cab6cfa03d7d0b587d95f23fd66ce0598bd75137b8d781b3fd7d450f65c165264ceeb453acc03c24bdceb4068689fac82a1439c9"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss@1.32.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.32.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lightningcss@1.33.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "5a4503ae88ee26cd3192019fdae756c5adf21814713edc54901efd8ba68264b46073b3ccf1f65ef53a2c7cf0dcbc4a5065bb850129c762644b04b51b98b38820"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "lightningcss",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lightningcss@1.33.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.33.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lucide-react@1.48.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "474088298fdf5e20bacbdc510400e0b0af955b6a7fa5c4c938c84b65fd53fae1bebc952fc94474da718e8262080bb30f92234ae0ec7c4039dba85f2b25858f65"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "name": "lucide-react",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lucide-react@1.48.0",
+      "scope": "required",
+      "type": "library",
+      "version": "1.48.0"
+    },
+    {
+      "bom-ref": "pkg:npm/magic-string@0.30.21",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "bddd85e1853211728670b1e8abe4c4c828f1b9e49e1e7171cb28cda7cd328345d5e2f5219c37abfe5bef96a33f6ab0796d740de4adbfde88a7c82472c7c4f609"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "magic-string",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/magic-string@0.30.21",
+      "scope": "required",
+      "type": "library",
+      "version": "0.30.21"
+    },
+    {
+      "bom-ref": "pkg:npm/nanoid@3.3.19",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "636b54372e28bb0eadab9a0348a7906063b286450184d39c195ff4d8a0beea477d7831aa75977efa68cc8880e296b058be3127098bd5b6cb870ae3fea2449fba"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "nanoid",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/nanoid@3.3.19",
+      "scope": "required",
+      "type": "library",
+      "version": "3.3.19"
+    },
+    {
+      "bom-ref": "pkg:npm/oxlint@1.85.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "6dcdbab3dee7baf3e3d558b23ecaa629e71591458530476d6b23bc31a43aa222dfb35a63f78710959661ae1e013cd96bf47428b238489708192ac7dcc2670d82"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "oxlint",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "true"
+        }
+      ],
+      "purl": "pkg:npm/oxlint@1.85.0",
+      "scope": "excluded",
+      "type": "library",
+      "version": "1.85.0"
+    },
+    {
+      "bom-ref": "pkg:npm/picocolors@1.1.1",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "c5c787dac9e1b5be4cf658aa0ec984c39ea57b7efa993664117fe311bfd1c4d1727a036e97b78db250973fd1438ff2dcbb45fc284c8c71e3f69eda5a1eb0c454"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "name": "picocolors",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/picocolors@1.1.1",
+      "scope": "required",
+      "type": "library",
+      "version": "1.1.1"
+    },
+    {
+      "bom-ref": "pkg:npm/picomatch@4.0.7",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "a9c26ef3c436216a89b030f9dbd24a31dc069bf76f2275b81ef427470887f49b62849bf318eb1c0ed1c4df1d6904a794393cac43c91598b9c9da426eef285c18"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "picomatch",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/picomatch@4.0.7",
+      "scope": "required",
+      "type": "library",
+      "version": "4.0.7"
+    },
+    {
+      "bom-ref": "pkg:npm/postcss@8.5.28",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "451bb3a83b6de58f61deabb3e615a12be4cf9ec995b3a5b0494e8b90931e6381ecb54103b984c6f1425275ac0c4739b302d57e284a06f0ddd0836a8bcb9bccfc"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "postcss",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/postcss@8.5.28",
+      "scope": "required",
+      "type": "library",
+      "version": "8.5.28"
+    },
+    {
+      "bom-ref": "pkg:npm/react-dom@19.3.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "24393c76089fe753a31680c4ef4f8e4fd202c98afeebd1e59a284dc29d7e36c7db9dadede6c22209af59264b43990e3fd5bfeb9f6ea1200476b985c332be6bd1"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "react-dom",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/react-dom@19.3.0",
+      "scope": "required",
+      "type": "library",
+      "version": "19.3.0"
+    },
+    {
+      "bom-ref": "pkg:npm/react@19.3.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "13c2d471bb415addb46db9766281dfc7864305dc554df38ab42667f5c0d227897afe7ba8029729201723e3bb76c19a155fc836647b8c1db892860091d53e52a2"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "react",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/react@19.3.0",
+      "scope": "required",
+      "type": "library",
+      "version": "19.3.0"
+    },
+    {
+      "bom-ref": "pkg:npm/rolldown@1.2.11",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "aa94b0232cf48c742ae6a5c14cdc45984ebaeb8ac9ecefb84ef3c53a239a052af3f0838773592828a4aa4ccd87eaed541b5f93bdeb82eaf6831ca5c53af6f52b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "rolldown",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/rolldown@1.2.11",
+      "scope": "required",
+      "type": "library",
+      "version": "1.2.11"
+    },
+    {
+      "bom-ref": "pkg:npm/scheduler@0.28.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "8eea2b7c2988908c3cb53fa9e415d29ba3c98d017fc9c11898acb3511088b7f45a64884bf8fba56d0f58bb6cf51dd3890dda834e5c40d7ec4a0661d726c73303"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "scheduler",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/scheduler@0.28.0",
+      "scope": "required",
+      "type": "library",
+      "version": "0.28.0"
+    },
+    {
+      "bom-ref": "pkg:npm/source-map-js@1.2.1",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "51758c2a12cec1529bef6f0852d40f5f17d853ebac7726ed52b2bff2e184f0240cbeb84ea70bf30c1c23d108522fb31073bbc8b084811bc550f3e203431a5f40"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "source-map-js",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/source-map-js@1.2.1",
+      "scope": "required",
+      "type": "library",
+      "version": "1.2.1"
+    },
+    {
+      "bom-ref": "pkg:npm/tailwindcss@4.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "80e855dcfeee7c4eb64031a0d7355a4e0091f84b4fbfdda4da722155c54a70b9b14f5b1406c406867663d7be63f8ca91b78ccb17b89cfac0988df8713318fb61"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "tailwindcss",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/tailwindcss@4.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "4.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/tapable@2.3.3",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "bb173fce9a8583ac7b0bcbce13b961e8b6dd6bc7842fdce6566fcf2de4cf051861d710a0756690f89d42522786a487e6d8776db14a51bfe1ec8626ac04c71ce8"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "tapable",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/tapable@2.3.3",
+      "scope": "required",
+      "type": "library",
+      "version": "2.3.3"
+    },
+    {
+      "bom-ref": "pkg:npm/tinyglobby@0.2.17",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "c1747f758a5ca8a99f5a911d66388a24ec023459dd0f40cc9eb5bf7188d51adb449017d581c2c51e836b963e3b9a339589cf72c8dbbae5a96c805e0d4324dada"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "tinyglobby",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/tinyglobby@0.2.17",
+      "scope": "required",
+      "type": "library",
+      "version": "0.2.17"
+    },
+    {
+      "bom-ref": "pkg:npm/vite@8.3.1",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "fdbbc7f44f6d9825d11a9dae5d8dd66ce95daa94f01646e16bff0035a110e95931847eb42b2a8bc2066aea51b6cbee2e4f9e71f7ef5e50732943bb869ce08a8c"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "vite",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/vite@8.3.1",
+      "scope": "required",
+      "type": "library",
+      "version": "8.3.1"
+    }
+  ],
+  "metadata": {
+    "authors": [
+      {
+        "name": "SIH26237 team"
+      }
+    ],
+    "component": {
+      "bom-ref": "sih26237",
+      "name": "sih26237-offline-forensic-attribution",
+      "type": "application",
+      "version": "3.0.0"
+    },
+    "properties": [
+      {
+        "name": "sih:bom-kind",
+        "value": "SBOM"
+      },
+      {
+        "name": "sih:guideline",
+        "value": "CERT-In Technical Guidelines on SBOM, QBOM & CBOM, AIBOM and HBOM v2.0"
+      },
+      {
+        "name": "sih:generated-offline",
+        "value": "true"
+      }
+    ]
+  },
+  "serialNumber": "urn:uuid:80068812-a821-5b2c-b17d-38c408c43081",
+  "specVersion": "1.6",
+  "version": 1
+}
