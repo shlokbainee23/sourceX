@@ -55,3 +55,9 @@ Thumbs.db
 wheelhouse/
 witness_data/
 
+
+# Local tooling
+.pytest_cache/
+wheelhouse/
+witness_data/
+
