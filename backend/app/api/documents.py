@@ -9,12 +9,13 @@ from typing import List
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 
 from app import config
+from app.api.common import attested_signing_key
 from app.api.uploads import read_upload, require_pdf, safe_filename
 from app.audit import record_audit
 from app.auth import AuthSession, current_session, require_roles
 from app.crypto.symmetric import compute_sha256
 from app.database.connection import get_connection
-from app.ledger.blockchain import commit_event, ledger_transaction, sign_record
+from app.ledger.blockchain import RECORD_VERSION, commit_event, ledger_transaction, sign_record
 from app.models.schemas import DocumentResponse
 from app.validation import CLASSIFICATIONS, ID_PATTERN
 
@@ -70,8 +71,9 @@ async def register_document(
         raise HTTPException(status_code=400, detail="Invalid document identifier")
 
     content = await read_upload(file)
-    require_pdf(content)
+    info = require_pdf(content)
     filename = safe_filename(file.filename)
+    signing_key, key_id = attested_signing_key(session)
     doc_hash = compute_sha256(content)
     created_at = datetime.now(timezone.utc).isoformat()
 
@@ -83,15 +85,17 @@ async def register_document(
 
     record = {
         "record_type": "DOCUMENT_REGISTRATION",
-        "record_version": "2.0",
+        "record_version": RECORD_VERSION,
         "authority_id": session.principal_id,
+        "signer_key_id": key_id,
         "document_id": document_id,
         "filename": filename,
         "original_hash": doc_hash,
+        "page_count": info["pages"],
         "classification": classification,
         "timestamp": created_at,
     }
-    signature = sign_record(session.keys["mldsa_sk"], record)
+    signature = sign_record(signing_key, record)
 
     save_path = get_docs_dir() / f"{document_id}_original.pdf"
     save_path.write_bytes(content)

@@ -1,0 +1,312 @@
+/**
+ * SOURCE-X — Design System Tokens & Editorial Styles
+ * Exact color palette & aesthetic from https://ark-ui-rosy.vercel.app/
+ * (AEGIS Local Workbench / Rosy Architectural Paper System)
+ */
+
+:root {
+  /* Exact Ark-UI Rosy palette */
+  --aegis-white: #ffffff;
+  --aegis-ink: #0a0a0a;
+  --aegis-text: #111111;
+  --aegis-surface: #f1f0ee;
+  --aegis-surface-2: #e3e2df;
+  --aegis-line: #e6e5e2;
+  --aegis-line-strong: #d8d6d2;
+  --aegis-line-subtle: #b6b6b6;
+  --aegis-muted: #8d8d8d;
+  --aegis-subtle: #b6b6b6;
+  
+  /* The Signature Rosy / Sienna / Terracotta Accents */
+  --aegis-orange: #b15f2c;
+  --aegis-orange-light: #cf8047;
+  --aegis-orange-dark: #97501f;
+  --accent-rgb: 177, 95, 44;
+
+  /* Danger / Fail-Closed Alert */
+  --danger: #8b3a2a;
+  --danger-rgb: 139, 58, 42;
+  --danger-bg: rgba(139, 58, 42, 0.08);
+  --danger-line: rgba(139, 58, 42, 0.28);
+
+  /* Warning */
+  --warn: #8a5a1a;
+  --warn-rgb: 138, 90, 26;
+
+  /* SOURCE-X mapped semantic tokens */
+  --sx-bg: #fafaf8;
+  --sx-bg-alt: #f1f0ee;
+  --sx-surface: #ffffff;
+  --sx-surface-raised: #f1f0ee;
+  --sx-surface-overlay: rgba(250, 250, 248, 0.94);
+  
+  --sx-border: var(--aegis-line);
+  --sx-border-subtle: #f1f0ee;
+  --sx-border-active: var(--aegis-line-strong);
+
+  --sx-text: var(--aegis-ink);
+  --sx-text-body: var(--aegis-text);
+  --sx-text-secondary: #3a3a3a;
+  --sx-text-muted: var(--aegis-muted);
+  --sx-text-dim: var(--aegis-subtle);
+
+  --sx-accent: var(--aegis-orange);
+  --sx-accent-light: var(--aegis-orange-light);
+  --sx-accent-dark: var(--aegis-orange-dark);
+  --sx-accent-soft: rgba(var(--accent-rgb), 0.10);
+  --sx-accent-border: rgba(var(--accent-rgb), 0.35);
+
+  --sx-font-sans: "Segoe UI Variable Text", "Segoe UI", "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --sx-font-mono: "Cascadia Code", "Consolas", "SF Mono", ui-monospace, Menlo, Monaco, monospace;
+}
+
+/* Base resets & typography */
+.sourcex-root {
+  background-color: var(--sx-bg);
+  color: var(--sx-text-body);
+  font-family: var(--sx-font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  overflow-x: hidden;
+  color-scheme: light;
+}
+
+.sourcex-root ::selection {
+  background: rgba(var(--accent-rgb), 0.22);
+  color: var(--aegis-ink);
+}
+
+.sourcex-root :focus-visible {
+  outline: 2px solid var(--aegis-orange);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.sx-mono {
+  font-family: var(--sx-font-mono);
+  letter-spacing: -0.015em;
+}
+
+.sx-display {
+  font-family: var(--sx-font-sans);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  color: var(--aegis-ink);
+}
+
+.sx-heading {
+  font-family: var(--sx-font-sans);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--aegis-ink);
+}
+
+/* Architectural Ark substrate grid pattern */
+.sx-grid-pattern {
+  background-image: 
+    linear-gradient(90deg, var(--aegis-line) 1px, transparent 1px),
+    linear-gradient(var(--aegis-line) 1px, transparent 1px);
+  background-size: 96px 96px;
+  opacity: 0.55;
+  mask-image: radial-gradient(120% 90% at 50% 30%, #000 30%, transparent 92%);
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 30%, #000 30%, transparent 92%);
+}
+
+/* Technical Ark cards */
+.sx-card {
+  background-color: var(--aegis-white);
+  border: 1px solid var(--aegis-line);
+  border-radius: 6px;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(10, 10, 10, 0.04);
+}
+
+.sx-card-raised {
+  background-color: var(--aegis-surface);
+  border: 1px solid var(--aegis-line-strong);
+  border-radius: 6px;
+}
+
+/* Persistent Document Story Object Container */
+.sx-document-sheet {
+  background: var(--aegis-white);
+  border: 1px solid var(--aegis-line-strong);
+  border-radius: 4px;
+  box-shadow: 0 12px 32px -16px rgba(10, 10, 10, 0.15), 0 0 0 1px var(--aegis-line);
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+
+.sx-document-sheet:hover {
+  box-shadow: 0 18px 48px -20px rgba(10, 10, 10, 0.22), 0 0 0 1px var(--aegis-line-strong);
+}
+
+/* Watermark micro-layer ribbon */
+.sx-watermark-ribbon {
+  border-left: 3px solid var(--aegis-orange);
+  background: linear-gradient(90deg, rgba(var(--accent-rgb), 0.10) 0%, transparent 100%);
+}
+
+/* Forensic Lens Loupe highlight */
+.sx-lens-highlight {
+  position: relative;
+  background-color: rgba(var(--accent-rgb), 0.08);
+  border: 1px dashed rgba(var(--accent-rgb), 0.45);
+  border-radius: 4px;
+}
+
+/* Timeline pill */
+.sx-timeline-pill {
+  transition: all 0.2s ease;
+}
+.sx-timeline-pill.active {
+  color: var(--aegis-orange-dark);
+  background-color: rgba(var(--accent-rgb), 0.12);
+  border-color: rgba(var(--accent-rgb), 0.4);
+}
+
+/* Ark-UI Rosy Buttons */
+.sx-btn-primary {
+  background-color: var(--aegis-ink);
+  color: #ffffff;
+  font-family: var(--sx-font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.35rem;
+  border-radius: 2px;
+  border: 1px solid var(--aegis-ink);
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sx-btn-primary:hover {
+  background-color: var(--aegis-orange);
+  border-color: var(--aegis-orange);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px -6px rgba(var(--accent-rgb), 0.4);
+}
+
+.sx-btn-secondary {
+  background-color: var(--aegis-white);
+  color: var(--aegis-text);
+  font-family: var(--sx-font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.35rem;
+  border-radius: 2px;
+  border: 1px solid var(--aegis-line-strong);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sx-btn-secondary:hover {
+  background-color: var(--aegis-surface);
+  border-color: var(--aegis-ink);
+  color: var(--aegis-ink);
+}
+
+/* 3D Perspective & Staging (inspired by advaithdabilipuram-com) */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-3d {
+  transform-style: preserve-3d;
+}
+
+/* Kinetic flowing letters */
+.sx-flow-letter {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  will-change: transform, opacity;
+}
+.sx-flow-letter:hover {
+  transform: translateY(-4px) scale(1.05);
+  color: var(--aegis-orange);
+}
+
+/* Forensic scanning beam animation */
+@keyframes sx-scan-beam {
+  0% {
+    top: -5%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    top: 105%;
+    opacity: 0;
+  }
+}
+
+.sx-scanner-beam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--aegis-orange) 50%, transparent 100%);
+  box-shadow: 0 0 10px 2px rgba(var(--accent-rgb), 0.45);
+  animation: sx-scan-beam 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Staged horizontal track */
+.sx-horizontal-track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.75rem;
+}
+.sx-horizontal-track > * {
+  scroll-snap-align: start;
+}
+
+/* Editorial Chapter Type Bridge (inspired by Advaith's .about-type-bridge) */
+.sx-type-bridge {
+  font-family: var(--sx-font-sans);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: var(--aegis-ink);
+}
+.sx-type-bridge em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--aegis-orange);
+}
+
+/* Reduced Motion Compliance */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .sx-document-sheet {
+    transform: none !important;
+  }
+  .sx-scanner-beam {
+    display: none !important;
+  }
+}
+

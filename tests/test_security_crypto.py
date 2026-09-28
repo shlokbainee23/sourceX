@@ -95,26 +95,28 @@ def _record():
 def test_altered_signed_record_rejected():
     pk, sk = dsa_keygen()
     rec = _record()
-    sig = dsa_sign(sk, canonicalize_json(rec))
-    assert dsa_verify(pk, canonicalize_json(rec), sig)
+    ctx = b"sih26237/ledger-record/v3"
+    sig = dsa_sign(sk, canonicalize_json(rec), context=ctx)
+    assert dsa_verify(pk, canonicalize_json(rec), sig, context=ctx)
     for field, value in (("recipient_id", "R003"), ("delivered_document_hash", "22" * 32),
                          ("watermark_token", "WM-" + "cd" * 32), ("decryption_timestamp", "2027-01-01T00:00:00+00:00")):
         altered = dict(rec, **{field: value})
-        assert dsa_verify(pk, canonicalize_json(altered), sig) is False, field
+        assert dsa_verify(pk, canonicalize_json(altered), sig, context=ctx) is False, field
 
 
 def test_invalid_signatures_rejected():
     pk, sk = dsa_keygen()
-    msg = canonicalize_json(_record())
-    sig = dsa_sign(sk, msg)
+    rec_bytes = canonicalize_json(_record())
+    ctx = b"sih26237/ledger-record/v3"
+    sig = dsa_sign(sk, rec_bytes, context=ctx)
     other_pk, _ = dsa_keygen()
-    assert dsa_verify(other_pk, msg, sig) is False
-    assert dsa_verify(pk, msg, os.urandom(len(sig))) is False
-    assert dsa_verify(pk, msg, sig[:-1]) is False
-    assert dsa_verify(pk, msg, b"") is False
-    assert dsa_verify(pk[:-1], msg, sig) is False
-    assert dsa_verify_hex(pk, msg, "zz" * 10) is False
-    assert dsa_verify_hex(pk, msg, sig.hex()) is True
+    assert dsa_verify(other_pk, rec_bytes, sig, context=ctx) is False
+    assert dsa_verify(pk, rec_bytes, os.urandom(len(sig)), context=ctx) is False
+    assert dsa_verify(pk, rec_bytes, sig[:-1], context=ctx) is False
+    assert dsa_verify(pk, rec_bytes, b"", context=ctx) is False
+    assert dsa_verify(pk[:-1], rec_bytes, sig, context=ctx) is False
+    assert dsa_verify_hex(pk, rec_bytes, "zz" * 10, context=ctx) is False
+    assert dsa_verify_hex(pk, rec_bytes, sig.hex(), context=ctx) is True
 
 
 def test_api_corrupted_ciphertext_denies_and_records_nothing(client, clean_ledger):
@@ -131,7 +133,7 @@ def test_api_corrupted_ciphertext_denies_and_records_nothing(client, clean_ledge
     data[-5] ^= 0x01
     path.write_bytes(bytes(data))
 
-    r = client.post("/api/decrypt", json={"document_id": "DOC-C1"}, headers=r002)
+    r = client.post("/api/decrypt", json={"document_id": "DOC-C1", "passphrase": testenv.passphrase("R002")}, headers=r002)
     assert r.status_code == 409
     conn = get_connection()
     assert conn.execute("SELECT COUNT(*) FROM sessions").fetchone()[0] == 0
@@ -152,7 +154,7 @@ def test_api_modified_wrapped_key_denies(client, clean_ledger):
     flipped = ("0" if wrapped[0] != "0" else "1") + wrapped[1:]
     conn.execute("UPDATE encrypted_packages SET wrapped_cek = ? WHERE document_id='DOC-C2'", (flipped,))
     conn.close()
-    assert client.post("/api/decrypt", json={"document_id": "DOC-C2"}, headers=r001).status_code == 403
+    assert client.post("/api/decrypt", json={"document_id": "DOC-C2", "passphrase": testenv.passphrase("R001")}, headers=r001).status_code == 403
 
 
 def test_api_transplanted_package_denies(client, clean_ledger):
@@ -169,4 +171,4 @@ def test_api_transplanted_package_denies(client, clean_ledger):
                     SELECT document_id, 'R003', kem_ciphertext, wrapped_cek, wrap_nonce, created_at
                     FROM encrypted_packages WHERE document_id='DOC-C3' AND recipient_id='R001'""")
     conn.close()
-    assert client.post("/api/decrypt", json={"document_id": "DOC-C3"}, headers=r003).status_code == 403
+    assert client.post("/api/decrypt", json={"document_id": "DOC-C3", "passphrase": testenv.passphrase("R003")}, headers=r003).status_code == 403

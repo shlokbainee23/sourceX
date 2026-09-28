@@ -3145,6 +3145,35 @@
       "version": "4.2.11"
     },
     {
+      "bom-ref": "pkg:npm/gsap@3.15.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "74c5b809605350ad401040de65cd60e31a4f188ad27fd7c917deb4a9b4d998dfd0c19216639c209624ba25697dff6e5fa53189acc46d4a31ad3a63e77e3641f8"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Standard 'no charge' license: https://gsap.com/standard-license."
+        }
+      ],
+      "name": "gsap",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/gsap@3.15.0",
+      "scope": "required",
+      "type": "library",
+      "version": "3.15.0"
+    },
+    {
       "bom-ref": "pkg:npm/jiti@2.7.0",
       "hashes": [
         {
@@ -3172,6 +3201,35 @@
       "scope": "required",
       "type": "library",
       "version": "2.7.0"
+    },
+    {
+      "bom-ref": "pkg:npm/lenis@1.3.26",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "b3fc530990b14c5bc76c03753b3ba135a37960f247d9a8a5d1702472d296d5bf915001b89d42f95072d7c0d928d61f1a11e4f68eca415de80c80f25df3372e6a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "lenis",
+      "properties": [
+        {
+          "name": "sih:ecosystem",
+          "value": "npm"
+        },
+        {
+          "name": "sih:build-only",
+          "value": "false"
+        }
+      ],
+      "purl": "pkg:npm/lenis@1.3.26",
+      "scope": "required",
+      "type": "library",
+      "version": "1.3.26"
     },
     {
       "bom-ref": "pkg:npm/lightningcss-android-arm64@1.32.0",
@@ -4361,7 +4419,7 @@
       }
     ]
   },
-  "serialNumber": "urn:uuid:80068812-a821-5b2c-b17d-38c408c43081",
+  "serialNumber": "urn:uuid:11d2c718-8e25-590a-b16f-92db2e194530",
   "specVersion": "1.6",
   "version": 1
 }

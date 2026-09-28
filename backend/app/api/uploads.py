@@ -1,13 +1,14 @@
 """
-Upload handling helpers: size limits and PDF validation.
+Upload handling helpers: size limits and PDF validation (parsing happens in the
+isolated PDF worker process, never in the key-holding server process).
 """
 
 from pathlib import PurePath
 
-import pymupdf
 from fastapi import HTTPException, UploadFile
 
 from app import config
+from app.pdf import worker
 
 
 async def read_upload(file: UploadFile) -> bytes:
@@ -19,17 +20,21 @@ async def read_upload(file: UploadFile) -> bytes:
     return content
 
 
-def require_pdf(content: bytes) -> None:
+def require_pdf(content: bytes, *, reject_active_content: bool = True) -> dict:
+    """Validates a PDF in the worker. Returns the inspection result."""
     if not content.startswith(b"%PDF-"):
         raise HTTPException(status_code=400, detail="Uploaded file is not a PDF document")
     try:
-        doc = pymupdf.open(stream=content, filetype="pdf")
-        pages = doc.page_count
-        doc.close()
-    except Exception:
-        raise HTTPException(status_code=400, detail="Uploaded PDF could not be parsed")
-    if pages < 1:
-        raise HTTPException(status_code=400, detail="Uploaded PDF has no pages")
+        info = worker.inspect(content)
+    except worker.PdfWorkerError as exc:
+        raise HTTPException(status_code=400, detail=f"Uploaded PDF could not be processed safely: {exc}")
+    if not info.get("ok"):
+        raise HTTPException(status_code=400, detail=f"Uploaded PDF rejected: {info.get('error') or 'could not be parsed'}")
+    if reject_active_content and info.get("dangerous_features"):
+        raise HTTPException(status_code=400,
+                            detail="Uploaded PDF contains active content or external references which are not "
+                                   f"permitted: {', '.join(info['dangerous_features'])}")
+    return info
 
 
 def safe_filename(name: str) -> str:

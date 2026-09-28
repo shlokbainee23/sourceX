@@ -275,7 +275,7 @@
             "algorithmRef": "crypto/aes-256-gcm",
             "mechanism": "scrypt + AES-256-GCM encrypted local software keystore (not an HSM)"
           },
-          "size": 19200,
+          "size": 512,
           "type": "private-key"
         }
       },
@@ -317,7 +317,7 @@
             "algorithmRef": "crypto/aes-256-gcm",
             "mechanism": "scrypt + AES-256-GCM encrypted local software keystore (not an HSM)"
           },
-          "size": 20480,
+          "size": 256,
           "type": "private-key"
         }
       },
@@ -476,7 +476,7 @@
       }
     ]
   },
-  "serialNumber": "urn:uuid:ed97712c-1915-5007-89a8-12bfc9a24932",
+  "serialNumber": "urn:uuid:4a7cbc2a-b707-5f19-ab12-ab20a81e0ac3",
   "specVersion": "1.6",
   "version": 1
 }

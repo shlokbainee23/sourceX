@@ -36,7 +36,8 @@ def build_sample_chain():
     for rid, n in (("R001", "a"), ("R002", "b")):
         rec = build_decryption_record(document_id="DOC-001", recipient_id=rid, session_id=f"SES-{rid}",
                                       watermark_token="WM-" + n * 64, source_document_hash="e3" * 32,
-                                      delivered_document_hash=n * 64, decryption_timestamp="2026-09-26T22:05:00Z")
+                                      delivered_document_hash=n * 64, decryption_timestamp="2026-09-26T22:05:00Z",
+                                      signer_key_id=f"{rid}#1")
         keys = testenv.unlocked_keys(rid)
         blocks.append(commit_event("DOCUMENT_DECRYPTED", rec, sign_record(keys["mldsa_sk"], rec), rid))
     return blocks

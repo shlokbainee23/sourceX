@@ -1,13 +1,16 @@
 """
 Runtime configuration for SIH26237.
-All values come from environment variables so tests and demos can run against
-isolated data directories without touching the operational store.
+Data locations come from environment variables so tests and demos can run against
+isolated data directories without touching the operational store. The installation
+trust anchor (authority pin, witness pins) can be redirected only in explicit
+development/test mode (SIH_DEV_MODE=1).
 """
 
 import os
 from pathlib import Path
 
 _DEFAULT_DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+_DEFAULT_TRUST_ANCHOR_DIR = _DEFAULT_DATA_DIR.parent.parent / "trust_anchor"
 
 
 def data_dir() -> Path:
@@ -36,12 +39,32 @@ def ledger_head_path() -> Path:
     return data_dir() / "ledger_head.json"
 
 
+def dev_mode_enabled() -> bool:
+    """Development/test mode: permits redirecting the installation trust anchor."""
+    return os.environ.get("SIH_DEV_MODE", "0") == "1"
+
+
+def _anchor_file(env_name: str, default_name: str) -> tuple:
+    override = os.environ.get(env_name)
+    if override:
+        return Path(override).resolve(), True
+    return (_DEFAULT_TRUST_ANCHOR_DIR / default_name).resolve(), False
+
+
+def authority_pin_location() -> tuple:
+    """(path, overridden). The pinned authority ML-DSA fingerprint lives OUTSIDE the data
+    directory so that whoever controls the data store cannot replace the trust anchor.
+    Deployments should place trust_anchor/ on read-only media."""
+    return _anchor_file("SIH_AUTHORITY_PIN_FILE", "authority.pin")
+
+
 def authority_pin_path() -> Path:
-    """The pinned authority ML-DSA fingerprint lives OUTSIDE the data directory so that
-    whoever controls the data store cannot silently replace the trust anchor. Deployments
-    should place it on read-only media."""
-    default = _DEFAULT_DATA_DIR.parent.parent / "trust_anchor" / "authority.pin"
-    return Path(os.environ.get("SIH_AUTHORITY_PIN_FILE", str(default))).resolve()
+    return authority_pin_location()[0]
+
+
+def witness_pin_location() -> tuple:
+    """(path, overridden) of the pinned independent witness keys and threshold."""
+    return _anchor_file("SIH_WITNESS_PIN_FILE", "witnesses.json")
 
 
 def demo_mode_enabled() -> bool:
@@ -51,9 +74,14 @@ def demo_mode_enabled() -> bool:
 
 SESSION_TTL_SECONDS = int(os.environ.get("SIH_SESSION_TTL_SECONDS", "1800"))
 MAX_UPLOAD_BYTES = int(os.environ.get("SIH_MAX_UPLOAD_BYTES", str(25 * 1024 * 1024)))
+MAX_PDF_PAGES = int(os.environ.get("SIH_MAX_PDF_PAGES", "200"))
+PDF_WORKER_TIMEOUT_SECONDS = int(os.environ.get("SIH_PDF_WORKER_TIMEOUT", "120"))
+PDF_WORKER_MEMORY_MB = int(os.environ.get("SIH_PDF_WORKER_MEMORY_MB", "1024"))
+DELIVERY_TTL_SECONDS = int(os.environ.get("SIH_DELIVERY_TTL_SECONDS", "900"))
 MIN_PASSPHRASE_LENGTH = 12
 LOGIN_MAX_FAILURES = 5
 LOGIN_LOCKOUT_SECONDS = 60
+LOGIN_LOCKOUT_MAX_SECONDS = 900
 
 ALLOWED_ORIGINS = [
     o.strip()

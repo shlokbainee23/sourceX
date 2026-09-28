@@ -13,16 +13,19 @@ from fastapi.responses import JSONResponse
 
 from app import config
 from app.api.auth import router as auth_router
-from app.api.decryption import router as decryption_router
+from app.api.decryption import purge_expired_deliveries, router as decryption_router
 from app.api.documents import router as documents_router
 from app.api.encryption import router as encryption_router
 from app.api.investigation import router as investigation_router
 from app.api.ledger import audit_router, router as ledger_router
+from app.api.lifecycle import router as lifecycle_router
 from app.api.recipients import router as recipients_router
 from app.api.trust import router as trust_router
 from app.crypto.identity import legacy_plaintext_key_files
-from app.trust import TrustError, current_manifest
 from app.database.connection import get_connection, init_db
+from app.ledger.blockchain import LedgerError, reconcile_head_anchor
+from app.pdf import worker as pdf_worker
+from app.trust import TrustError, current_manifest
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 logger = logging.getLogger("sih26237")
@@ -45,8 +48,18 @@ async def lifespan(app: FastAPI):
     except TrustError as exc:
         logger.warning("Trust store not usable (%s): attribution will fail closed until "
                        "scripts/provision_identities.py --issue-manifest is run.", exc.code)
+    try:
+        outcome = reconcile_head_anchor()
+        if outcome["action"] != "none":
+            logger.warning("Ledger head anchor reconciled at startup: %s", outcome)
+    except LedgerError as exc:
+        logger.error("LEDGER INTEGRITY: %s. All ledger writes are refused until investigated.", exc)
+    purge_expired_deliveries()
+    if config.dev_mode_enabled():
+        logger.warning("DEVELOPMENT MODE: trust-anchor file locations may be redirected by environment variables.")
     logger.info("SIH26237 offline provenance engine online (demo mode: %s).", config.demo_mode_enabled())
     yield
+    pdf_worker.shutdown()
 
 
 app = FastAPI(
@@ -81,6 +94,7 @@ app.include_router(investigation_router)
 app.include_router(ledger_router)
 app.include_router(audit_router)
 app.include_router(trust_router)
+app.include_router(lifecycle_router)
 
 
 @app.get("/")

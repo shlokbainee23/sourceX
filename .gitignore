@@ -21,6 +21,7 @@ frontend/.env.local
 
 # Databases & Runtime Generated Files
 backend/data/sih26237.sqlite
+backend/data/*.lock
 backend/data/documents/*.bin
 backend/data/documents/*.pdf
 !backend/data/documents/.gitkeep
@@ -54,6 +55,8 @@ Thumbs.db
 .pytest_cache/
 wheelhouse/
 witness_data/
+backend/data.backup/
+.vercel
 
 
 # Local tooling

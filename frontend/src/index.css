@@ -1,33 +1,70 @@
 @import "tailwindcss";
 
 :root {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  color-scheme: dark;
+  /* Core Architectural Paper & Ink System (from ark-ui-rosy) */
+  --aegis-white: #ffffff;
+  --aegis-ink: #0a0a0a;
+  --aegis-text: #111111;
+  --aegis-surface: #f1f0ee;
+  --aegis-surface-2: #e3e2df;
+  --aegis-line: #e6e5e2;
+  --aegis-line-strong: #d8d6d2;
+  --aegis-line-subtle: #b6b6b6;
+  --aegis-muted: #8d8d8d;
+  --aegis-subtle: #b6b6b6;
+  
+  /* Signature Terracotta / Sienna Accents */
+  --aegis-orange: #b15f2c;
+  --aegis-orange-light: #cf8047;
+  --aegis-orange-dark: #97501f;
+  --accent-rgb: 177, 95, 44;
+
+  /* Semantic Alerts */
+  --danger: #8b3a2a;
+  --danger-bg: rgba(139, 58, 42, 0.08);
+  --danger-line: rgba(139, 58, 42, 0.28);
+  --success: #2d6a4f;
+  --success-bg: rgba(45, 106, 79, 0.08);
+  --success-line: rgba(45, 106, 79, 0.30);
+  --warn: #8a5a1a;
+
+  /* Typography */
+  font-family: "Segoe UI Variable Text", "Segoe UI", "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color-scheme: light;
 }
 
 body {
   margin: 0;
-  background-color: #070d19;
-  color: #e2e8f0;
+  background-color: #fafaf8;
+  color: #111111;
   min-height: 100vh;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbars for cyber terminal feel */
+/* Custom scrollbars for architectural technical feel */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0b1329;
+  background: #f1f0ee;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #d8d6d2;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #b15f2c;
 }
+
+/* Selection */
+::selection {
+  background: rgba(177, 95, 44, 0.2);
+  color: #0a0a0a;
+}
+

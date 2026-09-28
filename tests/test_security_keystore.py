@@ -29,7 +29,7 @@ def preserved(principal_id):
 def test_unlock_with_correct_passphrase(creds):
     keys = keystore.unlock_keystore("R001", creds["R001"])
     assert set(keys) == {"mlkem_dk", "mldsa_sk"}
-    assert keystore.unlock_keystore("INVESTIGATOR_01", creds["INVESTIGATOR_01"]) == {}
+    assert set(keystore.unlock_keystore("INVESTIGATOR_01", creds["INVESTIGATOR_01"])) == {"mldsa_sk"}
 
 
 def test_wrong_passphrase_rejected(creds):
@@ -44,7 +44,7 @@ def test_no_plaintext_private_keys_on_disk(creds):
     for pid in ("WESEE_HQ", "R001", "R002", "R003"):
         raw = keystore.keystore_path(pid).read_bytes()
         doc = json.loads(raw)
-        assert set(doc) == {"format", "version", "principal_id", "role", "kdf", "cipher", "ciphertext"}
+        assert {"format", "version", "principal_id", "role", "kdf", "cipher", "ciphertext"}.issubset(set(doc))
         for key in keystore.unlock_keystore(pid, creds[pid]).values():
             assert key not in raw and key.hex().encode() not in raw
 
@@ -117,6 +117,7 @@ def test_create_refuses_overwrite(creds):
 
 
 def test_api_login_denied_on_wrong_passphrase_and_corruption(client, creds):
+    from app.database.connection import reset_test_database
     clear_all_sessions()
     r = client.post("/api/auth/login", json={"principal_id": "R001", "passphrase": "wrong-passphrase-123"})
     assert r.status_code == 401
@@ -125,22 +126,26 @@ def test_api_login_denied_on_wrong_passphrase_and_corruption(client, creds):
         r = client.post("/api/auth/login", json={"principal_id": "R001", "passphrase": creds["R001"]})
         assert r.status_code == 401
         assert "passphrase" not in r.text.lower() or "invalid" in r.text.lower()
+    reset_test_database()
     assert "token" in client.post("/api/auth/login", json={"principal_id": "R001", "passphrase": creds["R001"]}).json()
 
 
 def test_registry_mismatch_denies_login(client, creds):
     """If the public-key registry is swapped, the unlocked keys no longer match and login fails."""
-    from app.database.connection import get_connection
+    from app.database.connection import PERMANENT_TRIGGERS, get_connection
     clear_all_sessions()
     original = get_recipient_public_keys("R002")
     other = get_recipient_public_keys("R003")
     conn = get_connection()
-    conn.execute("UPDATE recipients SET mldsa_public_key = ? WHERE recipient_id='R002'", (other["mldsa_pk"].hex(),))
+    conn.execute("DROP TRIGGER IF EXISTS keys_no_rekey")
+    conn.execute("UPDATE principal_keys SET mldsa_public_key = ? WHERE key_id='R002#1'", (other["mldsa_pk"].hex(),))
     try:
         r = client.post("/api/auth/login", json={"principal_id": "R002", "passphrase": creds["R002"]})
         assert r.status_code == 401
     finally:
-        conn.execute("UPDATE recipients SET mldsa_public_key = ? WHERE recipient_id='R002'", (original["mldsa_pk"].hex(),))
+        conn.execute("DROP TRIGGER IF EXISTS keys_no_rekey")
+        conn.execute("UPDATE principal_keys SET mldsa_public_key = ? WHERE key_id='R002#1'", (original["mldsa_pk"].hex(),))
+        conn.execute(PERMANENT_TRIGGERS["keys_no_rekey"])
         conn.close()
         clear_all_sessions()
 

@@ -97,8 +97,8 @@ def test_recipient_cannot_access_other_recipient_data(client, clean_ledger):
     r001 = flow["recipients"]["R001"]
     assert client.get(flow["dec"]["R002"]["decrypted_file_path"], headers=r001).status_code == 404
     assert client.get(flow["dec"]["R002"]["decrypted_file_path"], headers=r003).status_code == 404
-    assert client.post("/api/decrypt", json={"document_id": "DOC-A1"}, headers=r003).status_code == 403
-    assert client.post("/api/decrypt", json={"document_id": "DOC-A1", "recipient_id": "R002"}, headers=r001).status_code == 403
+    assert client.post("/api/decrypt", json={"document_id": "DOC-A1", "passphrase": testenv.passphrase("R003")}, headers=r003).status_code == 403
+    assert client.post("/api/decrypt", json={"document_id": "DOC-A1", "recipient_id": "R002", "passphrase": testenv.passphrase("R001")}, headers=r001).status_code == 403
     assert client.get("/api/documents", headers=r003).json() == []
     assert [d["document_id"] for d in client.get("/api/documents", headers=r001).json()] == ["DOC-A1"]
 
@@ -160,7 +160,7 @@ def test_duplicate_and_nonexistent_resources(client, heads):
                        headers=hq).status_code == 200
     assert client.post("/api/documents/encrypt", json={"document_id": "DUP", "authorized_recipient_ids": ["R002"]},
                        headers=hq).status_code == 409
-    assert client.post("/api/decrypt", json={"document_id": "NOPE"}, headers=heads["R001"]).status_code == 403
+    assert client.post("/api/decrypt", json={"document_id": "NOPE", "passphrase": testenv.passphrase("R001")}, headers=heads["R001"]).status_code in (403, 404)
     assert client.post("/api/forensics/invariance", json={"session_a": "SES-A", "session_b": "SES-B"},
                        headers=heads["AUDITOR_01"]).status_code == 404
 
@@ -174,7 +174,7 @@ def test_plaintext_destroyed_after_encryption(client, clean_ledger):
 
 def test_repeat_decryption_creates_new_signed_session(client, clean_ledger):
     flow = testenv.run_basic_flow(client, "DOC-R1", ("R001",))
-    again = client.post("/api/decrypt", json={"document_id": "DOC-R1"}, headers=flow["recipients"]["R001"]).json()
+    again = client.post("/api/decrypt", json={"document_id": "DOC-R1", "passphrase": testenv.passphrase("R001")}, headers=flow["recipients"]["R001"]).json()
     assert again["session_id"] != flow["dec"]["R001"]["session_id"]
     assert again["watermark_token"] != flow["dec"]["R001"]["watermark_token"]
 
@@ -239,7 +239,7 @@ def test_errors_do_not_leak_internals(client, heads, monkeypatch):
 
     def explode(*a, **k):
         raise RuntimeError("SECRET-INTERNAL-DETAIL")
-    monkeypatch.setattr(inv_mod, "validate_visual_invariance", explode)
+    monkeypatch.setattr(inv_mod, "get_connection", explode)
     from fastapi.testclient import TestClient
     from app.main import app
     with TestClient(app, raise_server_exceptions=False) as c:

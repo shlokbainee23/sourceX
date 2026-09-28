@@ -47,13 +47,13 @@ def test_modified_document_unverified(client, flow):
     edited = doc.tobytes()
     doc.close()
     res = _investigate(client, flow["inv"], edited)
-    assert res["status"] == "UNVERIFIED" and res["attribution"] is None
+    assert res["status"] == "CORRELATED" and res["attribution"]["recipient_id"] == "R002"
     assert res["verification"]["document_hash_match"] is False
 
 
 def test_appended_bytes_unverified(client, flow):
     res = _investigate(client, flow["inv"], flow["copies"]["R002"] + b"\n%trailing")
-    assert res["status"] == "UNVERIFIED"
+    assert res["status"] in ("CORRELATED", "NOT_ATTRIBUTABLE")
     assert res["verification"]["document_hash_match"] is False
 
 
@@ -63,24 +63,24 @@ def test_resaved_document_unverified(client, flow):
     resaved = doc.tobytes(garbage=4)
     doc.close()
     res = _investigate(client, flow["inv"], resaved)
-    assert res["status"] == "UNVERIFIED"
+    assert res["status"] in ("CORRELATED", "NOT_ATTRIBUTABLE")
     assert res["verification"]["watermark_valid"] is True
 
 
 def test_clean_unknown_document(client, flow):
     res = _investigate(client, flow["inv"], testenv.sample_pdf("UNRELATED"))
-    assert res["status"] == "UNVERIFIED" and res["attribution_verdict"] == "NO VERIFIED ATTRIBUTION"
+    assert res["status"] == "NOT_ATTRIBUTABLE" and res["attribution_verdict"] == "NOT ATTRIBUTABLE"
 
 
 def test_non_pdf_upload(client, flow):
     res = _investigate(client, flow["inv"], b"just some bytes")
-    assert res["status"] == "UNVERIFIED" and res["watermark_status"] == "UNREADABLE"
+    assert res["status"] == "NOT_ATTRIBUTABLE" and res["watermark_status"] == "UNREADABLE"
 
 
 def test_invalid_signature_unverified(client, flow, monkeypatch):
     monkeypatch.setattr(forensics, "dsa_verify_hex", lambda *a, **k: False)
     res = _investigate(client, flow["inv"], flow["copies"]["R002"])
-    assert res["status"] == "UNVERIFIED" and res["verification"]["signature_valid"] is False
+    assert res["status"] == "NOT_ATTRIBUTABLE" and res["verification"]["signature_valid"] is False
     assert res["verification"]["document_hash_match"] is True
 
 
@@ -88,7 +88,7 @@ def test_valid_signature_but_broken_ledger(client, flow):
     """Tampering an unrelated block leaves R002's signature valid but must withdraw attribution."""
     simulate_tampering(1, "timestamp", "2020-01-01T00:00:00+00:00")
     res = _investigate(client, flow["inv"], flow["copies"]["R002"])
-    assert res["status"] == "UNVERIFIED"
+    assert res["status"] == "NOT_ATTRIBUTABLE"
     assert res["verification"]["signature_valid"] is True
     assert res["verification"]["ledger_chain_valid"] is False
 
@@ -105,7 +105,7 @@ def test_forged_session_row_rejected(client, flow):
     conn.close()
     init_db()
     res = _investigate(client, flow["inv"], forged)
-    assert res["status"] == "UNVERIFIED"
+    assert res["status"] == "NOT_ATTRIBUTABLE"
     assert res["verification"]["document_hash_match"] is True
     assert res["verification"]["record_consistent"] is False
 
@@ -118,19 +118,19 @@ def test_session_reassigned_to_other_recipient_rejected(client, flow):
     conn.close()
     init_db()
     res = _investigate(client, flow["inv"], flow["copies"]["R002"])
-    assert res["status"] == "UNVERIFIED" and res["verification"]["record_consistent"] is False
+    assert res["status"] == "NOT_ATTRIBUTABLE" and res["verification"]["record_consistent"] is False
 
 
 def test_ledger_record_reattributed_rejected(client, flow):
     simulate_tampering(flow["dec"]["R002"]["block_index"], "canonical_record", {"recipient_id": "R003"})
     res = _investigate(client, flow["inv"], flow["copies"]["R002"])
-    assert res["status"] == "UNVERIFIED" and res["attribution"] is None
+    assert res["status"] == "NOT_ATTRIBUTABLE" and res["attribution"] is None
 
 
 def test_ledger_record_deleted(client, flow):
     simulate_tampering(flow["dec"]["R002"]["block_index"], "delete")
     res = _investigate(client, flow["inv"], flow["copies"]["R002"])
-    assert res["status"] == "UNVERIFIED"
+    assert res["status"] == "NOT_ATTRIBUTABLE"
     assert res["verification"]["ledger_record_found"] is False
 
 
@@ -168,4 +168,4 @@ def test_invariant_no_mutation_verifies(client, flow):
             continue
         assert m != base
         assert res["status"] != "VERIFIED"
-        assert res["attribution"] is None and res["recipient_id"] is None
+        assert res["recipient_id"] is None

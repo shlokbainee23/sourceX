@@ -44,7 +44,7 @@ AUTHORITY_ID = "WESEE_HQ"
 
 def _unattested_principals() -> list:
     try:
-        attested = {e["principal_id"] for e in trust.current_manifest()["manifest"]["principals"]}
+        attested = set(trust.current_manifest()["principals"])
     except trust.TrustError as exc:
         if exc.code != trust.NOT_AVAILABLE:
             raise

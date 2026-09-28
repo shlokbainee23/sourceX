@@ -16,6 +16,8 @@ if "SIH_TEST_DATA_DIR" not in os.environ:
     os.environ["SIH_TEST_DATA_DIR"] = tempfile.mkdtemp(prefix="sih26237-test-")
 os.environ["SIH_DATA_DIR"] = os.environ["SIH_TEST_DATA_DIR"]
 os.environ["SIH_AUTHORITY_PIN_FILE"] = str(Path(os.environ["SIH_TEST_DATA_DIR"]) / "pin" / "authority.pin")
+os.environ["SIH_WITNESS_PIN_FILE"] = str(Path(os.environ["SIH_TEST_DATA_DIR"]) / "pin" / "witnesses.json")
+os.environ["SIH_DEV_MODE"] = "1"
 os.environ["SIH_DEMO_MODE"] = "1"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "backend"))
@@ -43,8 +45,21 @@ def provision_test_principals() -> dict:
 
 def authority_material():
     """(public key, secret key) of WESEE_HQ for tests that sign manifests directly."""
-    from app.crypto.identity import get_authority_public_key
-    return get_authority_public_key("WESEE_HQ"), unlocked_keys("WESEE_HQ")["mldsa_sk"]
+    from app.crypto.identity import get_registered_key
+    return get_registered_key("WESEE_HQ#1")["mldsa_pk"], unlocked_keys("WESEE_HQ")["mldsa_sk"]
+
+
+def passphrase(principal_id: str) -> str:
+    return _CREDENTIALS[principal_id]
+
+
+def set_passphrase(principal_id: str, value: str) -> None:
+    _CREDENTIALS[principal_id] = value
+
+
+def decrypt(client, headers: dict, principal_id: str, doc_id: str):
+    return client.post("/api/decrypt", json={"document_id": doc_id, "passphrase": _CREDENTIALS[principal_id]},
+                       headers=headers)
 
 
 def establish_test_trust():
@@ -83,7 +98,7 @@ def run_basic_flow(client, doc_id: str = "DOC-T1", recipients=("R001", "R002", "
     assert r.status_code == 200, r.text
     dec, copies = {}, {}
     for rid in recipients:
-        r = client.post("/api/decrypt", json={"document_id": doc_id}, headers=heads[rid])
+        r = decrypt(client, heads[rid], rid, doc_id)
         assert r.status_code == 200, r.text
         dec[rid] = r.json()
         copies[rid] = client.get(dec[rid]["decrypted_file_path"], headers=heads[rid]).content

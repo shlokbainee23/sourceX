@@ -21,7 +21,7 @@ from app.crypto.symmetric import (  # noqa: E402
 
 def test_pqc_kem():
     ek, dk = kem_keygen()
-    assert len(ek) == 1184 and len(dk) == 2400
+    assert len(ek) == 1184 and len(dk) in (64, 2400)
     ss_sender, ct = kem_encapsulate(ek)
     assert len(ss_sender) == 32 and len(ct) == 1088
     assert kem_decapsulate(dk, ct) == ss_sender
@@ -30,12 +30,12 @@ def test_pqc_kem():
 
 def test_pqc_dsa():
     pk, sk = dsa_keygen()
-    assert len(pk) == 1312 and len(sk) == 2560
+    assert len(pk) == 1312 and len(sk) in (32, 2560)
     msg = b"SIH26237 canonical decryption record"
-    sig = dsa_sign(sk, msg)
+    sig = dsa_sign(sk, msg, context=b"sih26237/ledger-record/v3")
     assert len(sig) == 2420
-    assert dsa_verify(pk, msg, sig) is True
-    assert dsa_verify(pk, msg + b"_tampered", sig) is False
+    assert dsa_verify(pk, msg, sig, context=b"sih26237/ledger-record/v3") is True
+    assert dsa_verify(pk, msg + b"_tampered", sig, context=b"sih26237/ledger-record/v3") is False
     print("[OK] ML-DSA-44 sign/verify and tamper rejection.")
 
 
@@ -77,7 +77,7 @@ def test_identity_keystore(creds):
         pub = get_recipient_public_keys(rid)
         priv = unlock_keystore(rid, creds[rid])
         assert len(pub["mlkem_ek"]) == 1184 and len(pub["mldsa_pk"]) == 1312
-        assert len(priv["mlkem_dk"]) == 2400 and len(priv["mldsa_sk"]) == 2560
+        assert len(priv["mlkem_dk"]) in (64, 2400) and len(priv["mldsa_sk"]) in (32, 2560)
     print("[OK] Encrypted keystores unlock and match registry sizes.")
 
 

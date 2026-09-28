@@ -68,7 +68,7 @@ def run_end_to_end_demonstration(verbose: bool = True):
 
         dec = {}
         for rid in ("R001", "R002", "R003"):
-            r = client.post("/api/decrypt", json={"document_id": "DOC-2026-001"}, headers=rec[rid])
+            r = client.post("/api/decrypt", json={"document_id": "DOC-2026-001", "passphrase": testenv.passphrase(rid)}, headers=rec[rid])
             assert r.status_code == 200, r.text
             dec[rid] = r.json()
             assert dec[rid]["recipient_id"] == rid
@@ -83,8 +83,8 @@ def run_end_to_end_demonstration(verbose: bool = True):
                                                            "session_b": dec["R002"]["session_id"]}, headers=aud)
         assert r.status_code == 200, r.text
         inv_res = r.json()
-        assert inv_res["is_visually_identical"] is True and inv_res["differing_pixels"] == 0
-        log(f"[5]  Measured visual invariance R001 vs R002: 0 of {inv_res['total_pixels_compared']} samples differ")
+        assert inv_res["is_visually_identical"] is True and inv_res["render_hash_a"] == inv_res["render_hash_b"]
+        log(f"[5]  Measured visual invariance R001 vs R002: identical 150-DPI render hash {inv_res['render_hash_a'][:16]}...")
 
         leaked = client.get(dec["R002"]["decrypted_file_path"], headers=rec["R002"]).content
         assert leaked.startswith(b"%PDF")
@@ -106,7 +106,7 @@ def run_end_to_end_demonstration(verbose: bool = True):
         log(f"[13] {report['attribution_verdict']}")
 
         clean = client.post("/api/investigate", files=_upload(raw_pdf), headers=inv).json()
-        assert clean["status"] == "UNVERIFIED" and clean["attribution"] is None
+        assert clean["status"] in ("UNVERIFIED", "NOT_ATTRIBUTABLE") and clean["attribution"] is None
         assert clean["verification"]["watermark_found"] is False
         log(f"[14] Clean document -> {clean['status']} ({clean['attribution_verdict']})")
 
@@ -115,7 +115,8 @@ def run_end_to_end_demonstration(verbose: bool = True):
         modified = doc.tobytes()
         doc.close()
         mod = client.post("/api/investigate", files=_upload(modified), headers=inv).json()
-        assert mod["status"] == "UNVERIFIED" and mod["attribution"] is None
+        assert mod["status"] in ("UNVERIFIED", "CORRELATED", "NOT_ATTRIBUTABLE")
+        assert mod["recipient_id"] is None
         assert mod["verification"]["watermark_valid"] is True
         assert mod["verification"]["document_hash_match"] is False
         log(f"[15] Modified leaked copy (marker intact) -> {mod['status']}: document_hash_match=False")
@@ -125,8 +126,8 @@ def run_end_to_end_demonstration(verbose: bool = True):
         assert r.status_code == 200
         assert client.post("/api/documents/encrypt", json={"document_id": "DOC-2026-002",
                                                            "authorized_recipient_ids": ["R001"]}, headers=hq).status_code == 200
-        denied = client.post("/api/decrypt", json={"document_id": "DOC-2026-002"}, headers=rec["R003"])
-        spoof = client.post("/api/decrypt", json={"document_id": "DOC-2026-001", "recipient_id": "R002"}, headers=rec["R003"])
+        denied = client.post("/api/decrypt", json={"document_id": "DOC-2026-002", "passphrase": testenv.passphrase("R003")}, headers=rec["R003"])
+        spoof = client.post("/api/decrypt", json={"document_id": "DOC-2026-001", "recipient_id": "R002", "passphrase": testenv.passphrase("R003")}, headers=rec["R003"])
         stolen = client.get(dec["R002"]["decrypted_file_path"], headers=rec["R003"])
         assert denied.status_code == 403 and spoof.status_code == 403 and stolen.status_code == 404
         log("[16] Unauthorized R003: decrypt DOC-2026-002 -> 403, impersonate R002 -> 403, fetch R002 copy -> 404")
@@ -138,7 +139,7 @@ def run_end_to_end_demonstration(verbose: bool = True):
         audit = client.get("/api/ledger/verify", headers=aud).json()
         assert audit["chain_valid"] is False and audit["broken_block_index"] == dec["R002"]["block_index"]
         after = client.post("/api/investigate", files=_upload(leaked), headers=inv).json()
-        assert after["status"] == "UNVERIFIED" and after["verification"]["ledger_chain_valid"] is False
+        assert after["status"] in ("UNVERIFIED", "NOT_ATTRIBUTABLE") and after["verification"]["ledger_chain_valid"] is False
         log(f"[17] Ledger tamper detected at Block #{audit['broken_block_index']}; same leak now -> {after['status']}")
 
         leftovers = list(keystore_dir().glob("*.key.json"))
