@@ -155,7 +155,7 @@ export default function VerdictDisplay({ result }) {
               FAIL-CLOSED NOTICE: Exact attribution cannot be cryptographically proven.
             </p>
             <p className="text-[#3a3a3a] font-sans text-xs leading-relaxed">
-              The embedded watermark token matches recipient copy ({attribution.recipient_id || 'correlated station'}), but the file hash differs from the signed delivered copy. Per security doctrine, modified documents do not produce verifiable attribution.
+              A valid marker was found, but this file does not match the exact delivered copy. The marker alone cannot identify a recipient, so attribution is withheld.
             </p>
           </div>
         </div>

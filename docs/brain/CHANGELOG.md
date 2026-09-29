@@ -1,5 +1,45 @@
 # Project Brain Changelog
 
+## [2026-09-29] — Withhold attribution for modified copies
+
+- Corrected the `CORRELATED` verdict: a marker linked to a signed decryption
+  record no longer identifies a recipient unless the uploaded file's exact hash
+  matches the delivered copy.
+- Withheld attribution and joinable recipient/session/document/block fields,
+  raw marker token, and signer key ID from modified-copy responses and reports.
+  Deferred identity-linked hash/signature audit events until all ten checks pass.
+- Updated the investigation UI and security regression expectations.
+
+## [2026-09-29] — Button hover feedback
+
+- Added shared colour-changing hover styles for native buttons across landing,
+  login and workspaces, including nested labels/icons; danger and warning keep
+  semantic colours. Added keyboard focus and reduced-motion support.
+- Shared Button hover/active utilities now exclude disabled controls.
+- Added an optional local Playwright regression for rendered button styles.
+- Production build and seven API tests pass; existing lint warnings remain.
+  Before/after backend runs both report 173 passed, 16 failed and 7 errors
+  (including filesystem permission errors); E2E passes all 18 steps and BOM
+  still reports 385 pre-existing drift items. Backend code is unchanged.
+
+## [2026-09-29] — SourceX frontend/backend integration
+
+- Compared the provided archive, GitHub `171db49`, and deployed Vercel assets.
+  Found matching frontend JavaScript but no functioning API on the public host.
+- Added optional local build hosting at `/workstation/`, preserving the API root
+  and existing endpoints; relative assets support both local and Vercel hosting.
+- Added readable connection failures and authentication-response validation;
+  login now checks backend availability, and engine status starts as unknown.
+- Removed frontend demo passphrases. Station switching terminates the old session
+  and prompts for the selected station's actual credentials.
+- Added a workstation launcher, locked Vercel installation commands, regression
+  tests, deployment instructions and checksum-preserving BOM line-ending rules.
+- Verified frontend build, 7 API tests, 2 hosting tests, real client workflow, and
+  browser login/navigation for all four roles. Full Python suite has no new
+  failures: 179 passed / 17 failed versus baseline 176 passed / 18 failed.
+- Recorded existing security-contract conflicts, BOM drift and npm audit findings
+  in CURRENT_STATE.md. No cryptographic behavior, operational data or live deployment changed.
+
 > **Engineering Change Log**  
 > Tracks initialization, architectural reconciliation, and brain system updates.  
 > *Rules:* No simulated historical entries. Only verified actions executed in the repository are recorded.

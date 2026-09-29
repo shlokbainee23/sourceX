@@ -26,7 +26,6 @@ export const DEFAULT_STATIONS = [
     name: 'WESEE Headquarters (Sender Authority)',
     rank: 'Station Command',
     description: 'Document registration, broadcast encryption authority, key attestation and trust anchor management.',
-    demoPassphrase: 'WeseeHQ@2026!',
   },
   {
     principal_id: 'R001',
@@ -34,7 +33,6 @@ export const DEFAULT_STATIONS = [
     name: 'Commander Alpha',
     rank: 'Navigation Officer (Naval Command)',
     description: 'Authorized recipient station for strategic fleet directives. Step-up decryption and delivery terminal.',
-    demoPassphrase: 'CommanderAlpha@2026!',
   },
   {
     principal_id: 'R002',
@@ -42,7 +40,6 @@ export const DEFAULT_STATIONS = [
     name: 'Officer Bravo',
     rank: 'Communications Director (Fleet Signals)',
     description: 'Authorized recipient station for naval signal communications and tactical directives.',
-    demoPassphrase: 'OfficerBravo@2026!',
   },
   {
     principal_id: 'R003',
@@ -50,7 +47,6 @@ export const DEFAULT_STATIONS = [
     name: 'Officer Charlie',
     rank: 'Weapons Specialist (Tactical Systems)',
     description: 'Authorized recipient station for tactical combat and ordinance directives.',
-    demoPassphrase: 'OfficerCharlie@2026!',
   },
   {
     principal_id: 'INVESTIGATOR_01',
@@ -58,7 +54,6 @@ export const DEFAULT_STATIONS = [
     name: 'Naval Forensics Investigator',
     rank: 'Forensic Laboratory Specialist',
     description: 'Document intake, 10-point fail-closed cryptographic verification, visual invariance analysis and dossier management.',
-    demoPassphrase: 'Investigator@2026!',
   },
   {
     principal_id: 'AUDITOR_01',
@@ -66,7 +61,6 @@ export const DEFAULT_STATIONS = [
     name: 'Ledger Auditor',
     rank: 'Independent Integrity Inspector',
     description: 'Ledger block verification, cryptographic chain inspection, audit event trail and adversarial tamper testing.',
-    demoPassphrase: 'Auditor@2026!',
   },
 ];
 

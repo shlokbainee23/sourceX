@@ -1,5 +1,30 @@
 # Engineering Task System
 
+## TASK-009: Consistent button hover colours
+
+- **Status:** DONE.
+- **Scope:** Shared native-button hover colour across landing and all workspaces,
+  semantic danger/warning variants, readable nested labels/icons, disabled-state
+  exclusions, keyboard focus, and reduced-motion support.
+- **Verification:** Production build and frontend API tests pass. Optional browser
+  regression is `frontend/tests/button-hover.cjs` using a locally installed
+  Playwright runtime. Backend pre/post outcomes unchanged; see changelog.
+
+## TASK-008: Integrate the deployed frontend with the local engine
+
+- **Status:** DONE (integration); overall release verification remains blocked by existing backend/BOM failures.
+- **Base:** GitHub `171db49`; uploaded files match it after newline normalization.
+- **Outcome:** Preserve the existing SourceX landing/workspace UI, add optional
+  same-origin `/workstation/` hosting, reject HTML masquerading as API responses,
+  validate authentication responses, detect backend availability before login,
+  remove bundled demo passphrases, and require credentials when switching stations.
+- **Verification:** 7 frontend API regressions pass, 2 hosting tests pass, production
+  build succeeds, real client workflow and four-role browser smoke pass.
+  Full suite: 179 pass / 17 fail, versus baseline 176 pass / 18 fail. No new failing tests.
+- **Follow-up:** Reconcile existing security-contract/test failures, stale BOM and
+  dependency audit findings before treating this prototype as release-ready.
+- **Deployment:** [Local and Vercel handoff](../FRONTEND_INTEGRATION.md).
+
 > **Executable Task Registry for AI Agents & Engineers**  
 > Every task is scoped to be atomic and executable without reconstructing the whole project context.  
 > Statuses: `BACKLOG` | `READY` | `IN_PROGRESS` | `BLOCKED` | `VERIFYING` | `DONE`

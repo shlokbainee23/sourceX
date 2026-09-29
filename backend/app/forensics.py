@@ -21,9 +21,8 @@ Pipeline (every step is evaluated and recorded):
 Verdicts:
   VERIFIED          all ten checks pass: the exact delivered file, cryptographically
                     attributed to the recipient's attested key.
-  CORRELATED        every check passes except the exact file hash: the marker is bound to
-                    a verified, recipient-signed decryption, but the file was modified
-                    after delivery. content_match says whether it still renders identically.
+  CORRELATED        every check passes except the exact file hash. This is a modified copy,
+                    so the marker cannot identify a recipient and attribution is withheld.
   NOT_ATTRIBUTABLE  any other check fails.
   VERIFICATION_ERROR the pipeline could not complete (fail closed, no attribution).
 A marker match alone never produces attribution.
@@ -80,10 +79,6 @@ LIMITATIONS = [
 ]
 
 
-def _token_ref(token: Optional[str]) -> Optional[str]:
-    return hashlib.sha256(token.encode()).hexdigest()[:16] if token else None
-
-
 def investigate_document(content: bytes, investigator_id: Optional[str] = None,
                          signer: Optional[Tuple[bytes, str]] = None) -> Dict[str, Any]:
     evidence = {name: False for name in CHECKS}
@@ -110,7 +105,7 @@ def investigate_document(content: bytes, investigator_id: Optional[str] = None,
             failures.append({"check": name, "reason": "Not established"})
 
     attribution = None
-    if status in (VERIFIED, CORRELATED):
+    if status == VERIFIED:
         attribution = {k: context.get(k) for k in (
             "recipient_id", "recipient_name", "recipient_role", "document_id", "session_id", "decryption_timestamp",
             "block_index", "block_hash", "signer_public_key_sha256", "signer_key_id", "classification")}
@@ -118,20 +113,22 @@ def investigate_document(content: bytes, investigator_id: Optional[str] = None,
         verdict = f"CRYPTOGRAPHICALLY VERIFIED ATTRIBUTION: {attribution['recipient_id']} ({attribution['recipient_name']})"
         reason = ("All ten evidence checks passed: exact delivered file, marker, session, signed record, ledger "
                   "record, full chain, document provenance and authority-attested signer key.")
+        record_audit("DOCUMENT_HASH_VERIFIED", investigator_id, session_id=attribution["session_id"])
+        record_audit("SIGNATURE_VERIFIED", investigator_id, recipient_id=attribution["recipient_id"],
+                     block_index=attribution["block_index"])
         record_audit("ATTRIBUTION_VERIFIED", investigator_id, recipient_id=attribution["recipient_id"],
                      session_id=attribution["session_id"], block_index=attribution["block_index"])
     elif status == CORRELATED:
-        verdict = (f"CORRELATED (MODIFIED COPY): marker bound to a verified decryption by {attribution['recipient_id']}; "
-                   f"file changed after delivery (content: {context['content_match']})")
-        reason = ("Every check passed except the exact file hash. The marker belongs to a verified, recipient-signed "
-                  "decryption record, but this file is not byte-identical to the delivered copy.")
-        record_audit("ATTRIBUTION_CORRELATED", investigator_id, recipient_id=attribution["recipient_id"],
-                     session_id=attribution["session_id"], content_match=context["content_match"])
+        verdict = "CORRELATION ONLY (MODIFIED COPY): exact file hash mismatch; no recipient identified"
+        reason = ("The marker was found, but the uploaded document does not match the exact delivered-file hash. "
+                  "A marker or related record cannot identify a recipient for a modified copy; attribution is withheld.")
+        record_audit("ATTRIBUTION_WITHHELD", investigator_id, "REJECTED", reason="document_hash_mismatch",
+                     content_match=context["content_match"])
     else:
         verdict = "VERIFICATION ERROR - NO ATTRIBUTION" if status == VERIFICATION_ERROR else "NOT ATTRIBUTABLE"
         reason = "; ".join(f["reason"] for f in failures if f["reason"] != "Not established") or "Evidence incomplete"
         record_audit("ATTRIBUTION_REJECTED", investigator_id, "REJECTED", status=status,
-                     failed_checks=[f["check"] for f in failures], token_ref=_token_ref(context.get("token")))
+                     failed_checks=[f["check"] for f in failures])
 
     result = {
         "status": status,
@@ -144,10 +141,14 @@ def investigate_document(content: bytes, investigator_id: Optional[str] = None,
         "content_match": context["content_match"],
         "uploaded_render_hash": context.get("uploaded_render_hash"),
         "dangerous_features": context.get("dangerous_features", []),
-        "watermark_token": context.get("token"),
+        # A raw marker is a join key into signed session records. Expose it only
+        # after every check passes, when the verified attribution is disclosed.
+        "watermark_token": context.get("token") if status == VERIFIED else None,
         "watermark_status": context.get("watermark_status"),
         "ledger_error": context.get("ledger_error"),
-        "trust_anchor": context.get("trust_anchor"),
+        "trust_anchor": ({**context["trust_anchor"], "signer_key_id":
+                          context["trust_anchor"].get("signer_key_id") if status == VERIFIED else None}
+                         if context.get("trust_anchor") else None),
         "witness": context.get("witness"),
         "limitations": LIMITATIONS,
     }
@@ -180,7 +181,9 @@ def _run_pipeline(content: bytes, uploaded_hash: str, evidence: dict, failures: 
     if wm["status"] == FOUND:
         evidence["watermark_valid"] = True
         context["token"] = wm["token"]
-        record_audit("WATERMARK_FOUND", actor, token_ref=_token_ref(wm["token"]))
+        # A token reference is a join key into recipient-signed ledger records.
+        # Record only that extraction succeeded until the complete verdict is known.
+        record_audit("WATERMARK_FOUND", actor)
     else:
         failures.append({"check": "watermark_found" if not evidence["watermark_found"] else "watermark_valid",
                          "reason": wm["reason"]})
@@ -216,7 +219,6 @@ def _run_pipeline(content: bytes, uploaded_hash: str, evidence: dict, failures: 
         if hmac.compare_digest(uploaded_hash, session["delivered_document_hash"]):
             evidence["document_hash_match"] = True
             context["content_match"] = "EXACT"
-            record_audit("DOCUMENT_HASH_VERIFIED", actor, session_id=session["session_id"])
         else:
             recorded_render = session["delivered_render_hash"] if "delivered_render_hash" in session.keys() else None
             uploaded_render = context.get("uploaded_render_hash")
@@ -284,7 +286,6 @@ def _run_pipeline(content: bytes, uploaded_hash: str, evidence: dict, failures: 
     if resolved and dsa_verify_hex(resolved["mldsa_pk"], ledger_bytes, block["signature"],
                                    context=record_context(ledger_record)):
         evidence["signature_valid"] = True
-        record_audit("SIGNATURE_VERIFIED", actor, recipient_id=recipient_id, block_index=block["block_index"])
     else:
         failures.append({"check": "signature_valid",
                          "reason": "Recipient ML-DSA-44 signature over the canonical record did not verify under the "

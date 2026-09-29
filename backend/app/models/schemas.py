@@ -167,7 +167,7 @@ class VerificationFailure(BaseModel):
 
 
 class InvestigationResult(BaseModel):
-    status: str  # VERIFIED | CORRELATED | NOT_ATTRIBUTABLE | VERIFICATION_ERROR
+    status: str  # VERIFIED | CORRELATED (no attribution) | NOT_ATTRIBUTABLE | VERIFICATION_ERROR
     attribution_verdict: str
     reason: str
     attribution: Optional[Attribution] = None

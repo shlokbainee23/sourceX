@@ -117,6 +117,10 @@ def run_end_to_end_demonstration(verbose: bool = True):
         mod = client.post("/api/investigate", files=_upload(modified), headers=inv).json()
         assert mod["status"] in ("UNVERIFIED", "CORRELATED", "NOT_ATTRIBUTABLE")
         assert mod["recipient_id"] is None
+        assert mod["attribution"] is None
+        assert mod["watermark_token"] is None
+        stored_report = client.get(f"/api/reports/{mod['report']['report_id']}", headers=inv).json()["report"]
+        assert stored_report["attribution"] is None
         assert mod["verification"]["watermark_valid"] is True
         assert mod["verification"]["document_hash_match"] is False
         log(f"[15] Modified leaked copy (marker intact) -> {mod['status']}: document_hash_match=False")

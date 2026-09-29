@@ -9,6 +9,7 @@ export function AuthProvider({ children }) {
   const [token, setToken] = useState(getStoredToken);
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState(null);
+  const [requestedStation, setRequestedStation] = useState(null);
   const { navigate } = useRouter();
 
   const getDefaultRouteForRole = (role) => {
@@ -105,8 +106,10 @@ export function AuthProvider({ children }) {
     setAuthError(null);
   }, []);
 
-  const switchStation = async (principalId, passphrase) => {
-    return login(principalId, passphrase);
+  const switchStation = async (principalId) => {
+    setRequestedStation(principalId);
+    setAuthError(null);
+    await logout();
   };
 
   return (
@@ -117,6 +120,7 @@ export function AuthProvider({ children }) {
         isAuthenticated: !!user,
         isLoading,
         authError,
+        requestedStation,
         login,
         logout,
         switchStation,

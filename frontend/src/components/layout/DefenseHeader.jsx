@@ -51,7 +51,7 @@ export default function DefenseHeader() {
         <div className="hidden lg:flex items-center gap-3 text-xs font-mono">
           <div className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#2d6a4f]/08 border border-[#2d6a4f]/25 text-[#1b4332]">
             <span className="w-2 h-2 rounded-full bg-[#2d6a4f] animate-pulse" />
-            <span className="text-[11px] font-semibold">AIR-GAP ENFORCED</span>
+            <span className="text-[11px] font-semibold">LOCAL ENGINE WORKSTATION</span>
           </div>
 
           <div className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#fafaf8] border border-[#e6e5e2] text-[#3a3a3a]">
@@ -104,7 +104,7 @@ export default function DefenseHeader() {
                             onClick={async () => {
                               setShowStationMenu(false);
                               if (!isCurrent) {
-                                await switchStation(st.principal_id, st.demoPassphrase);
+                                await switchStation(st.principal_id);
                               }
                             }}
                             className={`w-full px-3 py-2 text-left flex items-start gap-2.5 transition-colors ${

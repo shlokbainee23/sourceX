@@ -52,6 +52,7 @@ Thumbs.db
 *.swo
 
 # Local tooling
+.verification/
 .pytest_cache/
 wheelhouse/
 witness_data/

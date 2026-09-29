@@ -30,7 +30,8 @@ export class ApiError extends Error {
   }
 }
 
-const API_BASE = (import.meta.env && import.meta.env.VITE_API_URL) ? import.meta.env.VITE_API_URL.replace(/\/+$/, '') : '';
+const API_BASE = (import.meta.env?.VITE_API_URL || '').replace(/\/+$/, '');
+const CONNECTION_ERROR = 'The workstation backend is unavailable. Open the local workstation or contact the operator to restore the backend connection.';
 
 async function request(endpoint, options = {}) {
   const token = getStoredToken();
@@ -47,10 +48,16 @@ async function request(endpoint, options = {}) {
   }
 
   const url = endpoint.startsWith('http') ? endpoint : `${API_BASE}${endpoint}`;
-  const response = await fetch(url, {
-    ...options,
-    headers,
-  });
+  let response;
+  try {
+    response = await fetch(url, {
+      ...options,
+      headers,
+      signal: options.signal || AbortSignal.timeout(180000),
+    });
+  } catch {
+    throw new ApiError(0, CONNECTION_ERROR);
+  }
 
   if (response.status === 204) {
     return null;
@@ -64,7 +71,7 @@ async function request(endpoint, options = {}) {
     try {
       data = await response.json();
     } catch {
-      data = null;
+      throw new ApiError(response.status, 'The backend returned an invalid response. Please retry or contact the operator.');
     }
   } else if (contentType.includes('application/pdf') || contentType.includes('application/octet-stream')) {
     if (!response.ok) {
@@ -77,7 +84,9 @@ async function request(endpoint, options = {}) {
     }
     return response.blob();
   } else {
-    data = await response.text();
+    // Static hosts can return index.html with HTTP 200 for nonexistent /api routes.
+    // Never treat that page as a successful login or show raw HTML to the user.
+    throw new ApiError(response.status, CONNECTION_ERROR);
   }
 
   if (!response.ok) {
@@ -100,17 +109,30 @@ async function request(endpoint, options = {}) {
 }
 
 // Auth API
+function validatePrincipal(data) {
+  if (!data || typeof data.principal_id !== 'string' || !data.principal_id ||
+      !['AUTHORITY', 'RECIPIENT', 'INVESTIGATOR', 'AUDITOR'].includes(data.role)) {
+    throw new ApiError(502, 'The backend returned an invalid station identity. Authentication was not completed.');
+  }
+  return data;
+}
+
 export const authApi = {
-  login: (principalId, passphrase) =>
-    request('/api/auth/login', {
+  login: async (principalId, passphrase) => {
+    const result = validatePrincipal(await request('/api/auth/login', {
       method: 'POST',
       body: { principal_id: principalId, passphrase },
-    }),
+    }));
+    if (typeof result.token !== 'string' || !result.token) {
+      throw new ApiError(502, 'The backend did not issue a session token. Authentication was not completed.');
+    }
+    return result;
+  },
   logout: () =>
     request('/api/auth/logout', {
       method: 'POST',
     }),
-  me: () => request('/api/auth/me', { method: 'GET' }),
+  me: async () => validatePrincipal(await request('/api/auth/me', { method: 'GET' })),
 };
 
 // Documents API
@@ -222,6 +244,6 @@ export const ledgerApi = {
 
 // System Health API
 export const systemApi = {
-  getHealth: () => request('/api/health', { method: 'GET' }),
+  getHealth: () => request('/api/health', { method: 'GET', signal: AbortSignal.timeout(5000) }),
   getRoot: () => request('/', { method: 'GET' }),
 };
