@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Anchor,
   Eye,
@@ -12,26 +12,43 @@ import { useRouter } from '../../app/RouterContext';
 import { DEFAULT_STATIONS, SYSTEM_INFO } from '../../app/config';
 import Button from '../../components/common/Button';
 import Badge from '../../components/common/Badge';
+import { systemApi } from '../../services/api';
 
 export default function LoginPage() {
-  const { login, isLoading, authError, clearError } = useAuth();
+  const { login, isLoading, authError, clearError, requestedStation } = useAuth();
   const { navigate } = useRouter();
-  const [selectedStation, setSelectedStation] = useState(DEFAULT_STATIONS[0].principal_id);
-  const [passphrase, setPassphrase] = useState(DEFAULT_STATIONS[0].demoPassphrase || '');
+  const [selectedStation, setSelectedStation] = useState(requestedStation || DEFAULT_STATIONS[0].principal_id);
+  const [passphrase, setPassphrase] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [backendStatus, setBackendStatus] = useState('checking');
+
+  useEffect(() => {
+    let active = true;
+    const check = async () => {
+      try {
+        const result = await systemApi.getHealth();
+        if (active) setBackendStatus(result?.status === 'HEALTHY' ? 'ready' : 'unavailable');
+      } catch {
+        if (active) setBackendStatus('unavailable');
+      }
+    };
+    check();
+    const interval = setInterval(check, 10000);
+    return () => { active = false; clearInterval(interval); };
+  }, []);
 
   const currentStation =
     DEFAULT_STATIONS.find((s) => s.principal_id === selectedStation) || DEFAULT_STATIONS[0];
 
   const handleSelectStation = (station) => {
     setSelectedStation(station.principal_id);
-    setPassphrase(station.demoPassphrase || '');
+    setPassphrase('');
     if (authError) clearError();
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!passphrase.trim()) return;
+    if (!passphrase.trim() || backendStatus !== 'ready') return;
     await login(selectedStation, passphrase);
   };
 
@@ -65,7 +82,7 @@ export default function LoginPage() {
 
           <div className="hidden sm:flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded bg-[#2d6a4f]/08 border border-[#2d6a4f]/25 text-[#1b4332]">
             <span className="w-2 h-2 rounded-full bg-[#2d6a4f] animate-pulse" />
-            <span className="font-semibold text-[11px]">AIR-GAPPED ENVIRONMENT</span>
+            <span className="font-semibold text-[11px]">LOCAL WORKSTATION ACCESS</span>
           </div>
         </div>
       </header>
@@ -160,27 +177,24 @@ export default function LoginPage() {
                 </p>
               </div>
 
+              {backendStatus !== 'ready' && (
+                <div role="status" className="mb-4 p-3 bg-[#b15f2c]/10 border border-[#b15f2c]/25 rounded text-xs text-[#5a2e12]">
+                  <p className="font-semibold">{backendStatus === 'checking' ? 'Checking workstation connection…' : 'Workstation backend unavailable'}</p>
+                  {backendStatus === 'unavailable' && <p className="mt-1">This page needs the local SourceX engine to sign in. Open your running local workstation to use encryption, investigation and auditing. Connection checks retry automatically.</p>}
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <div className="flex items-center justify-between mb-1.5">
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#0a0a0a] font-mono">
+                    <label htmlFor="station-passphrase" className="block text-xs font-semibold uppercase tracking-wider text-[#0a0a0a] font-mono">
                       Station Keystore Passphrase
                     </label>
-                    {currentStation.demoPassphrase && (
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setPassphrase(currentStation.demoPassphrase);
-                          if (authError) clearError();
-                        }}
-                        className="text-[11px] font-mono text-[#b15f2c] hover:text-[#97501f] underline underline-offset-2 font-semibold"
-                      >
-                        Auto-fill Demo Passphrase
-                      </button>
-                    )}
                   </div>
                   <div className="relative">
                     <input
+                      id="station-passphrase"
+                      autoComplete="current-password"
                       type={showPassword ? 'text' : 'password'}
                       value={passphrase}
                       onChange={(e) => {
@@ -188,7 +202,7 @@ export default function LoginPage() {
                         if (authError) clearError();
                       }}
                       placeholder="Enter passphrase to unlock keystore..."
-                      disabled={isLoading}
+                      disabled={isLoading || backendStatus !== 'ready'}
                       required
                       autoFocus
                       className="w-full px-3.5 py-2.5 bg-[#fafaf8] border border-[#d8d6d2] rounded text-[#0a0a0a] text-sm focus:outline-none focus:ring-1 focus:ring-[#b15f2c] focus:border-[#b15f2c] placeholder:text-[#8d8d8d] pr-10 font-mono"
@@ -220,23 +234,6 @@ export default function LoginPage() {
                         </p>
                       </div>
                     </div>
-                    {currentStation.demoPassphrase && (
-                      <div className="pt-2 border-t border-[#8b3a2a]/20 flex items-center justify-between">
-                        <span className="text-[11px] text-[#8b3a2a]/80">
-                          Reset with valid demo key:
-                        </span>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setPassphrase(currentStation.demoPassphrase);
-                            clearError();
-                          }}
-                          className="px-2 py-1 rounded bg-white hover:bg-[#8b3a2a]/10 border border-[#8b3a2a]/30 text-[11px] text-[#8b3a2a] font-mono font-medium transition-colors"
-                        >
-                          Load Demo Key & Clear
-                        </button>
-                      </div>
-                    )}
                   </div>
                 )}
 
@@ -245,7 +242,7 @@ export default function LoginPage() {
                     type="submit"
                     variant="primary"
                     loading={isLoading}
-                    disabled={!passphrase.trim() || isLoading}
+                    disabled={!passphrase.trim() || isLoading || backendStatus !== 'ready'}
                     className="w-full py-2.5"
                     icon={ShieldCheck}
                   >
@@ -256,7 +253,7 @@ export default function LoginPage() {
             </div>
 
             <div className="mt-6 pt-3 border-t border-[#e6e5e2] text-[11px] text-[#8d8d8d] flex items-center justify-between font-mono">
-              <span>ZERO RUNTIME NETWORK CALLS</span>
+              <span>LOCAL ENGINE REQUIRED</span>
               <span className="text-[#8d8d8d]">WESEE MoD SECURE ASSET</span>
             </div>
           </div>

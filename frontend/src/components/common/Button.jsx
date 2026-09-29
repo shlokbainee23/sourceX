@@ -24,21 +24,22 @@ export default function Button({
 
   const variantClasses = {
     primary:
-      'bg-[#0a0a0a] hover:bg-[#b15f2c] active:bg-[#97501f] text-white shadow-sm border border-[#0a0a0a] hover:border-[#b15f2c]',
+      'bg-[#0a0a0a] enabled:hover:bg-[#b15f2c] enabled:active:bg-[#97501f] text-white shadow-sm border border-[#0a0a0a] enabled:hover:border-[#b15f2c]',
     secondary:
-      'bg-white hover:bg-[#f1f0ee] active:bg-[#e3e2df] text-[#111111] border border-[#d8d6d2] shadow-sm hover:border-[#0a0a0a]',
+      'bg-white enabled:hover:bg-[#f1f0ee] enabled:active:bg-[#e3e2df] text-[#111111] border border-[#d8d6d2] shadow-sm enabled:hover:border-[#0a0a0a]',
     danger:
-      'bg-[#8b3a2a] hover:bg-[#a34433] active:bg-[#6e2b1f] text-white border border-[#8b3a2a] shadow-sm',
+      'bg-[#8b3a2a] enabled:hover:bg-[#a34433] enabled:active:bg-[#6e2b1f] text-white border border-[#8b3a2a] shadow-sm',
     warning:
-      'bg-[#8a5a1a] hover:bg-[#a66f24] text-white font-semibold border border-[#8a5a1a]',
+      'bg-[#8a5a1a] enabled:hover:bg-[#a66f24] text-white font-semibold border border-[#8a5a1a]',
     ghost:
-      'bg-transparent hover:bg-[#f1f0ee] active:bg-[#e3e2df] text-[#3a3a3a] hover:text-[#0a0a0a]',
+      'bg-transparent enabled:hover:bg-[#f1f0ee] enabled:active:bg-[#e3e2df] text-[#3a3a3a] enabled:hover:text-[#0a0a0a]',
     outline:
-      'bg-transparent hover:bg-[#b15f2c]/10 text-[#b15f2c] border border-[#b15f2c]',
-  }[variant] || 'bg-[#0a0a0a] hover:bg-[#b15f2c] text-white';
+      'bg-transparent enabled:hover:bg-[#b15f2c]/10 text-[#b15f2c] border border-[#b15f2c]',
+  }[variant] || 'bg-[#0a0a0a] enabled:hover:bg-[#b15f2c] text-white';
 
   return (
     <button
+      data-variant={variant}
       type={type}
       onClick={onClick}
       disabled={disabled || loading}

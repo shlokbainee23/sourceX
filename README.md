@@ -60,6 +60,11 @@ Logging in means unlocking that principal's encrypted keystore with its passphra
 
 Prerequisites: Python 3.12+ and Node.js 20+.
 
+For the verified Windows setup, use **Python 3.12 or 3.13** and **Node.js 24**.
+The legacy `mlkem==0.0.3` dependency has Windows wheels for Python 3.12/3.13;
+Python 3.14 requires a C++ compiler to build it. The current Vite dependency also
+requires a sufficiently recent Node.js version (see `frontend/package-lock.json`).
+
 ```powershell
 # One-time setup (project root)
 python -m venv .venv
@@ -87,6 +92,30 @@ In the UI, choose a station in the top-right selector and enter that principal's
 2. `R001`, `R002`, `R003`: each decrypts, and `R002` downloads their copy.
 3. `INVESTIGATOR_01`: upload R002's copy.
 4. `AUDITOR_01`: run the tamper sandbox.
+
+### Run the integrated built workstation
+
+After installing dependencies and provisioning identities above:
+
+```powershell
+cd frontend
+npm ci
+npm run build
+cd ..
+.\scripts\start_workstation.bat
+```
+
+Open `http://127.0.0.1:8000/workstation/`. The backend serves the landing page,
+all four workspaces, and `/api` on the same local origin. There is no second
+frontend server or cloud dependency at runtime. The existing API root `/` remains
+JSON. Login uses the passphrase chosen during provisioning; switching stations
+ends the current session and asks for the next station's passphrase. Browser builds
+no longer contain demo passphrases. Set `SIH_DEMO_MODE=1` explicitly if the demo
+tamper/reset tools are required.
+
+The Vercel URL hosts the public interface only; it does not deploy the Python
+engine. The login screen now detects a missing backend and explains why sign-in
+is unavailable. See [integration findings and deployment instructions](docs/FRONTEND_INTEGRATION.md).
 
 ---
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { systemApi } from '../../services/api';
 
 export default function SystemFooter() {
-  const [healthy, setHealthy] = useState(true);
+  const [healthy, setHealthy] = useState(null);
 
   useEffect(() => {
     let active = true;
@@ -32,7 +32,7 @@ export default function SystemFooter() {
             }`}
           />
           <span className={healthy ? 'text-[#3a3a3a] font-medium' : 'text-[#8b3a2a] font-bold'}>
-            {healthy ? 'ENGINE ONLINE (AIR-GAPPED)' : 'BACKEND DISCONNECTED'}
+            {healthy === null ? 'CHECKING ENGINE' : healthy ? 'ENGINE ONLINE' : 'BACKEND DISCONNECTED'}
           </span>
         </div>
         <span className="text-[#d8d6d2] hidden sm:inline">|</span>

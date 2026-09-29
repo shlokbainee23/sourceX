@@ -1,5 +1,45 @@
 @import "tailwindcss";
 
+/* Cover native buttons across the landing story and every workspace.
+   Unlayered rules intentionally override individual Tailwind hover utilities. */
+#root button:not(:disabled):not([aria-disabled="true"]) {
+  transition: background-color 180ms ease, color 180ms ease,
+    border-color 180ms ease, box-shadow 180ms ease;
+}
+
+#root button[data-variant="danger"] {
+  --button-hover-bg: #a34433;
+}
+
+#root button[data-variant="warning"] {
+  --button-hover-bg: #704510;
+}
+
+@media (hover: hover) {
+  #root button:not(:disabled):not([aria-disabled="true"]):hover {
+    background-color: var(--button-hover-bg, #97501f);
+    color: #ffffff;
+    border-color: var(--button-hover-bg, #97501f);
+    box-shadow: 0 3px 10px rgb(151 80 31 / 22%);
+  }
+
+  /* Keep nested labels and icons legible on the hover surface. */
+  #root button:not(:disabled):not([aria-disabled="true"]):hover :where(*) {
+    color: inherit;
+  }
+}
+
+#root button:not(:disabled):not([aria-disabled="true"]):focus-visible {
+  outline: 2px solid #97501f;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #root button:not(:disabled):not([aria-disabled="true"]) {
+    transition: none;
+  }
+}
+
 :root {
   /* Core Architectural Paper & Ink System (from ark-ui-rosy) */
   --aegis-white: #ffffff;

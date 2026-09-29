@@ -46,14 +46,34 @@ def test_modified_document_unverified(client, flow):
     doc[0].insert_text((50, 500), "edited", fontsize=8)
     edited = doc.tobytes()
     doc.close()
+    conn = get_connection()
+    try:
+        first_event_id = conn.execute("SELECT COALESCE(MAX(id), 0) FROM audit_events").fetchone()[0]
+    finally:
+        conn.close()
     res = _investigate(client, flow["inv"], edited)
-    assert res["status"] == "CORRELATED" and res["attribution"]["recipient_id"] == "R002"
+    assert res["status"] == "CORRELATED" and res["attribution"] is None
     assert res["verification"]["document_hash_match"] is False
+    assert all(res[field] is None for field in (
+        "recipient_id", "recipient_name", "recipient_role", "document_id", "session_id",
+        "decryption_timestamp", "block_index", "block_hash", "watermark_token"))
+    stored_report = client.get(f"/api/reports/{res['report']['report_id']}", headers=flow["inv"]).json()["report"]
+    assert stored_report["attribution"] is None
+    conn = get_connection()
+    try:
+        events = conn.execute("SELECT event, details FROM audit_events WHERE principal_id = ? AND id > ?",
+                              ("INVESTIGATOR_01", first_event_id)).fetchall()
+    finally:
+        conn.close()
+    assert not any(e["event"] == "SIGNATURE_VERIFIED" for e in events)
+    assert not any(e["event"] in ("ATTRIBUTION_CORRELATED", "DOCUMENT_HASH_VERIFIED") for e in events)
+    assert all("token_ref" not in e["details"] for e in events)
 
 
 def test_appended_bytes_unverified(client, flow):
     res = _investigate(client, flow["inv"], flow["copies"]["R002"] + b"\n%trailing")
-    assert res["status"] in ("CORRELATED", "NOT_ATTRIBUTABLE")
+    assert res["status"] == "CORRELATED"
+    assert res["attribution"] is None and res["recipient_id"] is None
     assert res["verification"]["document_hash_match"] is False
 
 
@@ -63,7 +83,8 @@ def test_resaved_document_unverified(client, flow):
     resaved = doc.tobytes(garbage=4)
     doc.close()
     res = _investigate(client, flow["inv"], resaved)
-    assert res["status"] in ("CORRELATED", "NOT_ATTRIBUTABLE")
+    assert res["status"] == "CORRELATED"
+    assert res["attribution"] is None and res["recipient_id"] is None
     assert res["verification"]["watermark_valid"] is True
 
 

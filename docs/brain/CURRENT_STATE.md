@@ -1,5 +1,77 @@
 # Current Project State
 
+## Modified-copy attribution — 2026-09-29
+
+- **FIXED:** `CORRELATED` remains an evidence-status label when every check except
+  the exact delivered-file hash passes, but the API now returns no attribution or
+  identity/session/document/block fields for that result. The raw watermark token
+  and signer key ID are also withheld; report attribution is null.
+- **FIXED:** Hash/signature audit events carrying a session or recipient are now
+  recorded only after all ten checks pass. Failed/modified investigations carry
+  no recipient-linked token or session reference in their audit events.
+- **VERIFIED:** Focused adversarial regression coverage asserts the response,
+  report and audit do not disclose attribution for edited, appended or resaved copies.
+
+## Button styling — 2026-09-29
+
+- Shared enabled-button colour-changing hover styles now cover landing/login and
+  all workspace native buttons. Danger/warning remain distinct, disabled shared
+  buttons do not gain hover feedback, keyboard focus is visible, and reduced
+  motion disables colour transitions. Rebuilt local workstation assets.
+- Build and seven API tests pass. Latest backend before/after checks both yield
+  173 passed, 16 failed, 7 errors (including filesystem permissions), with no
+  backend modifications. E2E 18 steps pass; BOM drift remains 385 items.
+
+## Integration verification — 2026-09-29
+
+This section supersedes historical counts and working-tree descriptions below for
+the frontend integration branch based on GitHub `171db49`.
+
+- **VERIFIED:** Uploaded source matches GitHub HEAD after line-ending normalization.
+  Deployed JavaScript matches a locked baseline build exactly. Vercel's `/api/health`
+  returns SPA HTML, confirming the missing backend connection on the public host.
+- **VERIFIED:** Built landing page and four role workspaces run with FastAPI at
+  `/workstation/` when `SIH_SERVE_FRONTEND=1`. Existing API routes and JSON root remain.
+  Added private-file/traversal and API-separation checks. Browser tests exercised
+  all four role logins and station switching, with no JavaScript page errors.
+- **VERIFIED:** Real frontend API client completed PDF registration, broadcast
+  encryption, step-up decryption, delivery download, VERIFIED investigation,
+  report listing, ledger verification and audit listing against isolated test data.
+- **VERIFIED:** Hosted HTML fallback cannot establish authentication. The login
+  screen explains missing backend access and disables submission; mobile layout
+  was inspected at 390px with no horizontal overflow. Browser demo passphrases
+  were removed; station switching logs out and asks for the next credentials.
+- **VERIFIED:** Seven new frontend API tests pass. Production build passes.
+  The repository's standalone 18-step end-to-end demonstration also passes on
+  Python 3.12; it accepts the existing CORRELATED behavior noted below.
+  Lint exits successfully with zero errors and 37 existing warnings (same baseline
+  warning count); the repository's zero-warning quality target is not yet met.
+- **VERIFIED:** Python 3.12.14 with all `requirements.txt` packages installed:
+  untouched baseline **176 passed / 18 failed** (194 total); integration
+  **179 passed / 17 failed** (196 total). Every remaining failing test also fails
+  in the baseline. The two new hosting tests pass. BOM newline preservation fixes
+  the pre-existing `test_modified_bom_detected` failure on this Windows checkout.
+- **CONFLICT:** The committed BOM predates the current frontend lockfile (including
+  its Vercel CLI tree) and records different installed Python component metadata.
+  After resolving CRLF checksum conversion, BOM validation reports 385 drift items.
+  The BOM has not been regenerated to conceal this baseline mismatch. Added
+  `.gitattributes` preserves checksum-covered file bytes in future Windows checkouts.
+- **CONFLICT / RELEASE LIMITATION:** The 16 other failing tests cover existing
+  verdict naming, ledger signing-key fixtures, trust-manifest schema/drift behavior,
+  missing-pin behavior, and recipient-enrollment contracts. Some failures concern
+  security semantics, not only stale test expectations; this task does not certify
+  or repair the cryptographic engine. Existing `CORRELATED` results can carry a
+  recipient identity without an exact hash match, conflicting with DEC-007/008
+  and the stated no-attribution invariant. No attribution rules were changed here.
+- **VERIFIED:** Dependency installation reported 29 existing npm audit findings
+  (1 low, 12 moderate, 15 high, 1 critical). No automatic dependency upgrades were
+  applied as part of the frontend integration.
+- **Deployment:** Local changes only. No push, merge, Vercel deployment, or
+  operational identity provisioning. Vercel remains a public interface; full
+  operation uses the offline backend. See [deployment handoff](../FRONTEND_INTEGRATION.md).
+
+The remaining sections describe the earlier snapshot and are retained as history.
+
 > **Last Updated:** 2026-09-28  
 > **Source of Truth:** Working repository tree and git baseline `7542c92`  
 > **Evaluation Standard:** VERIFIED / DOCUMENTED / INFERRED / UNKNOWN / CONFLICT (No synthetic progress metrics)

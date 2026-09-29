@@ -1,0 +1,3 @@
+# Preserve the exact bytes covered by bom/SHA256SUMS on Windows checkouts.
+bom/*.json text eol=lf
+bom/SHA256SUMS text eol=lf

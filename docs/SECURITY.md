@@ -58,6 +58,7 @@ A client-supplied `recipient_id` on `/api/decrypt` is rejected (403) if it diffe
 - `pqc_dsa.dsa_verify` returns `False` for any malformed input or exception.
 - `ledger.verify.verify_ledger` returns `chain_valid=False` for any anomaly or internal error.
 - `forensics.investigate_document` returns `VERIFIED` only if all ten checks pass, including `document_provenance_valid` and `identity_trusted`.
+- A `CORRELATED` modified-copy result means the marker and record checks may match but the exact delivered-file hash does not. It includes no recipient, document, session, block, raw marker, or signer-key identifier; the report also carries no attribution. Identity-linked hash/signature audit events are written only after all ten checks pass; non-verified audit events do not contain recipient-linked marker or session references.
 - `trust.verify_principal_key` never raises. A missing pin, an empty or corrupted trust store, a fingerprint mismatch, or a revocation all return `trusted=False` with a reason. Any exception produces `VERIFICATION_ERROR`, with `attribution=null` and every flat attribution field null.
 - Decryption is denied on:
   - a locked keystore;

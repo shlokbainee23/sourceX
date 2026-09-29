@@ -20,8 +20,9 @@ router = APIRouter(prefix="/api", tags=["investigation"])
 async def investigate_leaked_document(file: UploadFile = File(...),
                                       session: AuthSession = Depends(require_roles("INVESTIGATOR"))):
     """
-    Strict, fail-closed attribution: VERIFIED, CORRELATED (modified copy), NOT_ATTRIBUTABLE or
-    VERIFICATION_ERROR, with every check listed. The evidence report is signed with the
+    Strict, fail-closed attribution: only VERIFIED identifies a recipient. CORRELATED marks
+    a modified copy with exact-hash mismatch and carries no attribution. Every check is listed.
+    The evidence report is signed with the
     investigator's attested key and committed to the ledger when that key is available.
     """
     content = await read_upload(file)

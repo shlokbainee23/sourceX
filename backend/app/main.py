@@ -5,6 +5,7 @@ encryption, ML-DSA-44 signed decryption records and a tamper-evident hash-chaine
 """
 
 import logging
+import os
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
@@ -115,3 +116,8 @@ def root():
 @app.get("/api/health")
 def health():
     return {"status": "HEALTHY"}
+
+
+if os.environ.get("SIH_SERVE_FRONTEND", "0") == "1":
+    from app.frontend import mount_frontend
+    mount_frontend(app)
